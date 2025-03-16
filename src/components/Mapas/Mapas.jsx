@@ -1,9 +1,10 @@
 import React from 'react';
+import "./Mapas.css"
 
 function MapContainer() {
   return (
     <div>
-            <h2>Teste Leaflet + React+Vite</h2>
+            <h1>Dimensão X</h1>
     <div className="container">
     <div className='left'>
     <div className="map-container">

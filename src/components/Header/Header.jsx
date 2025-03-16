@@ -1,15 +1,16 @@
 import React from 'react';
+import "./Header.css";
 
 function Header() {
     return (
         <header className='header'>
             <div className='logo'>
-                <a href="#">Logo</a>
+                <a href="/">Logo</a>
             </div>
             <div className='nav-links'>
-                <a href="#">Dimensões</a>
-                <a href="#">Ferramenta</a>
-                <a href="#">Ajuda</a>
+                <a href="Dimensoes">Dimensões</a>
+                <a href="Ferramenta">Ferramenta</a>
+                <a href="Ajuda">Ajuda</a>
             </div>
         </header>
 );

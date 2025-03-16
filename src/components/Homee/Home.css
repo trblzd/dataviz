@@ -1,0 +1,98 @@
+.containerHome, .DimensoesHome, .EspecialistasHome, .AmazoniaLegal {
+    margin-bottom: 10vh;
+}
+
+.containerHome {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 1vw; 
+    align-items: center;
+    max-width: 70%;
+    margin: auto;
+}
+#FotoProjeto {
+    width: 80%;
+    height: auto;
+}
+.TextoHome h1, p {
+    text-align: justify;
+    margin: 0;
+}
+.TextoHome h1 {
+    margin-bottom: 1vw;
+}
+#Elipses {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+}
+.DimensoesHome {    
+    padding-bottom: 2vh;
+}
+.ElipsesHome {
+    width: 15vw;
+    height: auto;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+.ElipsesHome:hover {
+    transform: scale(1.1);
+    filter: hue-rotate(50deg);
+    transition: 0.5s ease;
+}
+
+.EspecialistasHome {
+    padding-bottom: 2vh;
+}
+#Pessoas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+    flex-wrap: wrap;
+}
+.PessoasFoto {
+    font-size: 12pt;
+    text-align: center;
+    background-color: #c0baad;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 13px 13px 30px -12px rgba(0,0,0,0.75);
+    width: 300px; 
+    height: auto;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    overflow: hidden;
+}
+
+.PessoasFoto:hover {
+    filter: brightness(1.06);
+    transform: scale(1.05);
+    transition: 0.5s ease;
+}
+
+.PessoasFoto img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px; 
+}
+
+.PessoasFoto h1 {
+    font-family: Inter, sans-serif;
+    font-size: 20pt;
+    font-weight: 600;
+    margin-top: 1vh;
+    word-wrap: break-word;
+    margin-bottom: 0px;
+}
+
+.PessoasFoto p {
+    font-size: 14pt;
+    word-wrap: break-word;
+    text-align: center;
+}
+.AmazoniaLegal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
