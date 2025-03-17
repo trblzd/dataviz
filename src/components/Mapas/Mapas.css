@@ -1,4 +1,7 @@
-
+.MapasContainer {
+  width: 70%;
+  margin: auto;
+}
 .map-container {
     width: 50vw; 
     height: 80vh;

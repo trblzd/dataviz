@@ -59,11 +59,25 @@ function Home () {
                 </div>
             </div>
         </div>
-        <div classname="AmazoniaLegal">
-            <h1>Amazônia Legal Brasileira</h1>
-            <img src={Amazonia} alt="Amazonia" />
+    <div className="AmazoniaLegal">
+        <h1>Amazônia Legal Brasileira</h1>
+        <div className="AmazoniaContent">
+            <img src={Amazonia} alt="Amazonia" className="AmazoniaImg" />
+            <div className="InfoAmazonia">
+                <div className="NumDivs"><p>1</p></div>
+                <div className="NumDivs"><p>2</p></div>
+                <div className="NumDivs"><p>3</p></div>
+                <div className="NumDivs"><p>4</p></div>
+                <div className="NumDivs"><p>5</p></div>
+                <div className="NumDivs"><p>6</p></div>
+                <div className="NumDivs"><p>7</p></div>
+                <div className="NumDivs"><p>8</p></div>
+                <div className="NumDivs"><p>9</p></div>
+            </div>
         </div>
     </div>
+
+</div>
 
 
 
