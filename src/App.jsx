@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Dimensions from './components/Mapas/Mapas';
 import Header from './components/Header/Header';
@@ -26,7 +26,6 @@ function App() {
     }
   }
 
-
   function topFunction() {
     window.scrollTo({
       top: 0,
@@ -35,23 +34,21 @@ function App() {
   }
 
   return (
-    <>
-      <Router>
-        <div>
-          <Header />
-          <button onClick={topFunction} id="myBtn" className={showBtn} title="Go to top">⇪</button>
-          <Suspense fallback={<h1>Loading...</h1>}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/Dimensions" element={<Dimensions />} />
-              <Route path="/Tool" element={<Tool />} />
-              <Route path="/Contact" element={<Contact />} />
-            </Routes>
-            <Footer />
-          </Suspense>
-        </div>
-      </Router>
-    </>
+    <HashRouter>
+      <div>
+        <Header />
+        <button onClick={topFunction} id="myBtn" className={showBtn} title="Go to top">⇪</button>
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Dimensions" element={<Dimensions />} />
+            <Route path="/Tool" element={<Tool />} />
+            <Route path="/Contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+        </Suspense>
+      </div>
+    </HashRouter>
   );
 }
 
