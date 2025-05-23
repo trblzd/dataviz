@@ -1,11 +1,11 @@
 import React, { Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
-import Mapas from './components/Mapas/Mapas';
+import Dimensions from './components/Mapas/Mapas';
 import Header from './components/Header/Header';
-import Ajuda from './components/Ajuda/Ajuda';
-import Ferramenta from './components/Ferramenta/Ferramenta';
-import Homee from './components/Homee/Home';
+import Contact from './components/Ajuda/Ajuda';
+import Tool from './components/Ferramenta/Ferramenta';
+import Home from './components/Homee/Home';
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
     }
   }
 
-  // Função adaptada para rolagem suave
+
   function topFunction() {
     window.scrollTo({
       top: 0,
@@ -39,13 +39,13 @@ function App() {
       <Router>
         <div>
           <Header />
-          <button onClick={topFunction} id="myBtn" className={showBtn} title="Go to top">👆</button>
-          <Suspense fallback={<h1>Carregando...</h1>}>
+          <button onClick={topFunction} id="myBtn" className={showBtn} title="Go to top">⇪</button>
+          <Suspense fallback={<h1>Loading...</h1>}>
             <Routes>
-              <Route path="/" element={<Homee />} />
-              <Route path="/Dimensoes" element={<Mapas />} />
-              <Route path="/Ferramenta" element={<Ferramenta />} />
-              <Route path="/Ajuda" element={<Ajuda />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/Dimensions" element={<Dimensions />} />
+              <Route path="/Tool" element={<Tool />} />
+              <Route path="/Contact" element={<Contact />} />
             </Routes>
             <Footer />
           </Suspense>

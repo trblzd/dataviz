@@ -5,26 +5,41 @@
     justify-content: center;  
     padding-top: 1vh;
     padding-bottom: 1vh;
-    background-color: #1B4D3E;
     color: #ffffff;
     width: 100%;
     font-weight: 500;
     z-index: 1000;
-    margin-bottom: 5vh;
-    position: sticky;
+    position: fixed;
+    transition: background-color 0.5s ease;
     top: 0;
+    height: auto;
   }
+.header.transparent {
+  background-color: transparent;
+}
+
+.header.solid {
+  background-color: #18443C;
+}
   .header .logo {
-    font-weight: 700;
+    size: 100%;
     padding-left: 2vw;
   }
-  
+  .logo img {
+    height: 7vh;
+  }
+  .logo img:hover {
+    filter: hue-rotate(90deg);
+    transition: 0.5s ease;
+  }
   .nav-links {
+    font-family: Montserrat;
     display: flex;
-    align-items: center;
-    justify-content: center; 
+    align-items: right;
+    justify-content: right; 
     gap: 1vw;
     flex-grow: 1;
+    padding-right: 2vw;
   }
   a {
     letter-spacing: 1px;
@@ -36,7 +51,7 @@
     transition: 0.5s ease;
   }
   a:hover {
-    color: #000000;
+    color: #F2B034;
     transition: 0.5s ease;
   }
   
