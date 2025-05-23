@@ -18,12 +18,12 @@ function Header() {
     return (
         <header className={`header ${isScrolled ? "solid" : "transparent"}`}>
             <div className='logo'>
-                <a href="/"><img src={Logo}/></a>
+                <Link to="/"><img src={Logo} alt="Logo" /></Link>
             </div>
             <div className='nav-links'>
-                <a href="Dimensions">Dimensions</a>
-                <a href="Tool">Tool</a>
-                <a href="Contact">Contact</a>
+              <Link to="/Dimensions">Dimensions</Link>
+              <Link to="/Tool">Tool</Link>
+              <Link to="/Contact">Contact</Link>
             </div>
         </header>
 );
