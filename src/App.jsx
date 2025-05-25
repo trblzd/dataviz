@@ -7,6 +7,7 @@ import Contact from './components/Ajuda/Ajuda';
 import Tool from './components/Ferramenta/Ferramenta';
 import Home from './components/Homee/Home';
 import Footer from './components/Footer/Footer';
+import Credits from './components/Creditos/Creditos';
 
 function App() {
   const [showBtn, setShowBtn] = useState("myBtn none");
@@ -44,6 +45,7 @@ function App() {
             <Route path="/Dimensions" element={<Dimensions />} />
             <Route path="/Tool" element={<Tool />} />
             <Route path="/Contact" element={<Contact />} />
+            <Route path="/Credits" element={<Credits />} />
           </Routes>
           <Footer />
         </Suspense>

@@ -1,34 +1,4 @@
-.MapasContainer {
+.map-image {
   width: 70%;
-  margin: auto;
+  height: auto;
 }
-.map-container {
-    width: 50vw; 
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  
-  }
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    align-items: center;
-  }
-  h1{
-  text-align: center;
-  }
-  
-  
-  .left, .right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1vw;
-  }
-  iframe {
-    width: 80%;
-    height: 80%;
-    border: none;
-  }

@@ -3,7 +3,7 @@ import React from "react";
 function Ferramenta () {
     return(
         <div>
-            <h1>Ferramenta</h1>
+            <h1>Interactive Tool</h1>
         </div>
 
 

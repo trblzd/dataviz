@@ -3,11 +3,11 @@
     display: flex;
     align-items: center;
     justify-content: center;  
-    padding-top: 1vh;
-    padding-bottom: 1vh;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
     color: #ffffff;
     width: 100%;
-    font-weight: 500;
+    font-weight: 400;
     z-index: 1000;
     position: fixed;
     transition: background-color 0.5s ease;
@@ -19,18 +19,14 @@
 }
 
 .header.solid {
-  background-color: #18443C;
+  background-color: #0F221E;
 }
   .header .logo {
     size: 100%;
     padding-left: 2vw;
   }
   .logo img {
-    height: 7vh;
-  }
-  .logo img:hover {
-    filter: hue-rotate(90deg);
-    transition: 0.5s ease;
+    height: 6vh;
   }
   .nav-links {
     font-family: Montserrat;
