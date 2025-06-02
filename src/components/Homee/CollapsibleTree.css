@@ -1,0 +1,21 @@
+.node circle {
+  cursor: pointer;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  fill: rgb(255, 255, 255); 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  dominant-baseline: middle;
+}
+
+.link {
+  fill: none;
+  stroke: #F2B034;
+  opacity: 25%;
+  stroke-width: 2px;
+}
+
+svg {
+  overflow: visible;
+}

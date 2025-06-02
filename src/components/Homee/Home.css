@@ -1,24 +1,88 @@
-.containerHome, .DimensoesHome, .EspecialistasHome{
-    margin-bottom: 10vh;
-}
-h1 {
-    color: #2B4F46;
-    font-weight: 500;
-}
-h6 {
-    color: #F2B034;
-    text-align: center;
-    font-size: 14pt;
-    font-weight: 400;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
+  .containerHome, .DimensoesHome, .EspecialistasHome,.DimensionsX{
+      margin-bottom: 6vh;
+  }
+  h1 {
+      color: #2B4F46;
+      font-weight: 500;
+      text-align: center;
+      margin: 0 auto;
+      padding: 0 auto;
+  }
+  h6 {
+      color: #F2B034;
+      text-align: center;
+      font-size: 14pt;
+      font-weight: 400;
+      margin: 0 auto;
+      padding: 0 auto;
+  }
 
 .containerHome {
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "titulo ilustracao"
+        "texto ilustracao"
+        "botao ilustracao";
+    align-items: start;
+    gap: 1rem;
     margin: auto;
     position: relative;
     background-color: #0f221e;
+    min-height: 100vh;
+    padding: 8vh 10vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+.containerHome h1 {
+    grid-area: titulo;
+    font-size: 48pt;
+    font-weight: 400;
+    color: #F2B034;
+    position: relative;
+    margin: 0;
+    align-self: end;
+    text-align: left;
+    padding-bottom: 5vh;
+}
+
+.containerHome p {
+    grid-area: texto;
+    color: #ffffff;
+    font-weight: 300;
+    position: relative;
+    text-align: left;
+    margin: 0;
+}
+
+#ilustrahome {
+    grid-area: ilustracao;
+    align-self: center;
+    justify-self: end;
+    padding-top: 7%;
+    scale: 1.2;
+    grid-row: 1 / span 2;
+    z-index: 3; 
+    max-width: 100%;
+    height: auto;
+}
+
+.Scroll {
+    grid-area: botao;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6vw;
+    padding: 1.2vh 2vw;
+    font-size: 14pt;
+    font-weight: 400;
+    color: #ffffff;
+    background-color: #276C5F;
+    border-radius: 12px;
+    border: none;
+    text-decoration: none;
+    width: fit-content;
 }
 #Gradiente {
     width: 100%;
@@ -29,298 +93,423 @@ h6 {
     z-index: 2; 
     mix-blend-mode: multiply;
 }
+
 #FotoProjeto {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    position: relative;
+    position: absolute;
     z-index: 1;
     opacity: 50%;
     mix-blend-mode: color-dodge;
 }
-#Elipses {
+
+.containerHome > *:not(#FotoProjeto):not(#Gradiente) {
+    position: relative;
+    z-index: 4;
+}
+
+  #Elipses {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6vw;
+  }
+
+  .DimensoesHome {    
+      margin-top: 4vh;
+      padding-bottom: 2vh;
+      margin-left: 15%;
+      margin-right: 15%;
+      color: #4D504D;
+  }
+
+  #Elipses {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 6vw;
-}
+    flex-wrap: wrap;
+    gap: 4vw;
+    padding: 2vh 0;
+  }
 
-.DimensoesHome {    
-        padding-bottom: 2vh;
-        margin-left: 15%;
-        margin-right: 15%;
+  .elipseItem {
+    text-align: center;
+    width: 14vw;
+  }
+
+  .ElipsesHome {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+  }
+
+  .ElipsesHome:hover {
+    transform: scale(1.05);
+  }
+
+  .elipseTitle {
+    color: #2B4F46;
+    font-weight: 450;
+    margin-top: 0.5rem;
+    font-size: 24pt;
+  }
+
+  .elipseDesc {
+    font-size: 14pt;
     color: #4D504D;
-}
+  }
 
-#Elipses {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 4vw;
-  padding: 2vh 0;
-}
+  .elipseButton{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.2vh 1.7vw;
+    font-size: 14pt;
+    font-weight: 500;
+    color: #1A3731;
+    border: 2px solid #1A3731;
+    border-radius: 12px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .EspecialistasHome {
+    padding: 4vh 5vw;
+    text-align: center;
+  }
+  .EspecialistasHome h1 {
+    font-size: 38pt;
+  }
 
-.elipseItem {
-  text-align: center;
-  width: 14vw;
-}
+  #Pessoas {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
 
-.ElipsesHome {
-  width: 100%;
-  height: auto;
-  transition: transform 0.5s ease;
-}
+  .PessoasFoto {
+    width: 280px;
+    background: linear-gradient(to bottom, #ffffff 55%, #f5f8f5 45%);
+    border-radius: 1.5rem;
+    box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-.ElipsesHome:hover {
-  transform: scale(1.05);
-}
+  .PessoasFoto:hover {
+    transform: scale(1.03);
+  }
 
-.elipseTitle {
-  color: #2B4F46;
-  font-weight: 450;
-  margin-top: 0.5rem;
-  font-size: 24pt;
-}
+  .PessoasFoto img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+  }
 
-.elipseDesc {
-  font-size: 14pt;
-  color: #4D504D;
-}
+  .PessoasFoto h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 1rem 1rem 0 1rem;
+    color: #243528;
+    text-align: left;
+  }
 
-.elipseButton{
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1.2vh 1.7vw;
-  font-size: 14pt;
-  font-weight: 500;
-  color: #1A3731;
-  border: 2px solid #1A3731;
-  border-radius: 12px;
-  background-color: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.EspecialistasHome {
-  padding: 4vh 5vw;
-  text-align: center;
-}
+  .PessoasFoto p {
+    font-size: 0.95rem;
+    margin: 0.3rem 1rem 1.5rem 1rem;
+    color: #3f4f45;
+    text-align: left;
+  }
 
-.EspecialistasHome h1 {
-  font-size: 38pt;
-}
+  .PessoasFoto a {
+    text-decoration: none;
+    color: #236e4a;
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin: 0 1rem 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.4rem;
+    transition: color 0.3s ease;
+  }
 
-#Pessoas {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-}
+  .PessoasFoto a:hover {
+    color: #1a5e3c;
+  }
 
-.PessoasFoto {
-  width: 280px;
-  background: linear-gradient(to bottom, #ffffff 55%, #f5f8f5 45%);
-  border-radius: 1.5rem;
-  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+  .PessoasFoto a::after {
+    content: "→";
+    color: #f4b230;
+    font-size: 1rem;
+  }
 
-.PessoasFoto:hover {
-  transform: scale(1.03);
-}
+  .AmazoniaLegal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2vh;
+    padding: 4vh 4vw;
+    background: linear-gradient(to bottom right, #0e2c23, #102f29);
+  }
+  .AmazoniaLegal h1 {
+    color: #F2B034;
+    font-weight: 350;
+  }
+  .AmazoniaLegalDv {
+      margin-left: 15%;
+      margin-right: 15%;
+  }
+  .AmazoniaContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4vw;
+    width: 100%;
+    max-width: 1400px;
+  }
 
-.PessoasFoto img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-}
+  #imgdv {
+      height: 8vh;
+      width: auto;
+  }
 
-.PessoasFoto h1 {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin: 1rem 1rem 0 1rem;
-  color: #243528;
-  text-align: left;
-}
+  #num {
+      font-size: 60pt;
+  }
 
-.PessoasFoto p {
-  font-size: 0.95rem;
-  margin: 0.3rem 1rem 1.5rem 1rem;
-  color: #3f4f45;
-  text-align: left;
-}
+  #sb {
+      font-size: 16pt;
+      color: #ffffff;
+  }
+  .AmazoniaImg {
+    height: 60vh;
+    max-height: 500px;
+    border-radius: 1rem;
+    object-fit: contain;
+    flex: 1;
+    min-width: 300px;
+  }
 
-.PessoasFoto a {
-  text-decoration: none;
-  color: #236e4a;
-  font-weight: 500;
-  font-size: 0.95rem;
-  margin: 0 1rem 1rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.4rem;
-  transition: color 0.3s ease;
-}
+  .InfoAmazonia {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    flex: 1.2;
+    min-width: 350px;
+  }
 
-.PessoasFoto a:hover {
-  color: #1a5e3c;
-}
+  .NumDivs {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 15vh;
+    width: 10vw;
+    transition: transform 0.3s ease;
+  }
 
-.PessoasFoto a::after {
-  content: "→";
-  color: #f4b230;
-  font-size: 1rem;
-}
+  .NumDivs:hover {
+    transform: scale(1.04);
+  }
 
-.AmazoniaLegal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 2vh;
-  padding: 4vh 4vw;
-  background: linear-gradient(to bottom right, #0e2c23, #102f29);
-}
-.AmazoniaLegal h1 {
-  color: #F2B034;
-  font-weight: 350;
-}
-.AmazoniaLegalDv {
-    margin-left: 15%;
-    margin-right: 15%;
-}
-.AmazoniaContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 4vw;
-  width: 100%;
-  max-width: 1400px;
-}
-
-#imgdv {
-    height: 8vh;
-    width: auto;
-}
-
-#num {
-    font-size: 60pt;
-}
-
-#sb {
-    font-size: 16pt;
+  .NumDivs p {
+    margin: 0.3rem 0;
+    font-size: 1rem;
     color: #ffffff;
-}
-.AmazoniaImg {
-  height: 60vh;
-  max-height: 500px;
-  border-radius: 1rem;
-  object-fit: contain;
-  flex: 1;
-  min-width: 300px;
-}
+    font-weight: 300;
+  }
 
-.InfoAmazonia {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  flex: 1.2;
-  min-width: 350px;
-}
+  .NumDivs strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
 
-.NumDivs {
-  background-color: rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 15vh;
-  width: 10vw;
-  transition: transform 0.3s ease;
-}
+  .NumDivs svg, .NumDivs img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 0.6rem;
+  }
 
-.NumDivs:hover {
-  transform: scale(1.04);
-}
-
-.NumDivs p {
-  margin: 0.3rem 0;
-  font-size: 1rem;
-  color: #ffffff;
-  font-weight: 300;
-}
-
-.NumDivs strong {
-  color: #ffffff;
-  font-weight: 600;
-}
-
-.NumDivs svg, .NumDivs img {
-  width: 30px;
-  height: 30px;
-  margin-bottom: 0.6rem;
-}
-
-.NumDivs:nth-child(4) p:first-child,
-.NumDivs:nth-child(5) p:first-child {
-  font-size: 2.2rem;
-  color: #f9b22d;
-  font-weight: bold;
-}
+  .NumDivs:nth-child(4) p:first-child,
+  .NumDivs:nth-child(5) p:first-child {
+    font-size: 2.2rem;
+    color: #f9b22d;
+    font-weight: bold;
+  }
 
 
-.DTool {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
+  .DTool {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
 
-#tool {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
+  #tool {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
 
-.toolButton {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 1vw;
-  padding: 2vh 3vw;
-  font-size: 14pt;
-  font-weight: 400;
-  color: #ffffff;
-  background-color: #276C5F;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  z-index: 2;
-}
+  .toolButton {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 1vw;
+    padding: 2vh 3vw;
+    font-size: 14pt;
+    font-weight: 400;
+    color: #ffffff;
+    background-color: #276C5F;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
 
-.toolButton:hover {
-  background-color: #1e5a4e;
-  transform: translate(-50%, -50%) scale(1.05);
-}
+  .toolButton:hover {
+    background-color: #1e5a4e;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
 
-.arrow-icon {
-  width: 2vw;
-  height: auto;
-}
+  .arrow-icon {
+    width: 2vw;
+    height: auto;
+  }
+
+  .Artigo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
+    align-items: start;
+    padding: 8vh 10vw;
+    background-color: #0F221E;
+    color: #ffffff;
+  }
+
+  .ArtigoText {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    text-align: left;
+  }
+
+  .ArtigoText h6 {
+    color: #ffffff;
+    text-align: left;
+    margin-bottom: -3vh;
+    padding: 0;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .ArtigoText h1 {
+    color: #F2B034;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .Artigo p {
+    font-size: 14pt;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .Artigo ul {
+    font-size: 11pt;
+    line-height: 1.6;
+    list-style-type: disc;
+    padding-left: 1.2em;
+  }
+
+  .Artigo ul li {
+    margin-bottom: 1vh;
+  }
+
+  .Artigo strong {
+    font-weight: 800;
+  }
+
+  .ArtigoImagem {
+    max-width: 100%;
+    height: auto;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .datasetButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6vw;
+    padding: 1.2vh 2vw;
+    font-size: 14pt;
+    font-weight: 400;
+    color: #ffffff;
+    background-color: #276C5F;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 2vh;
+    width: fit-content;
+  }
+
+  .datasetButton:hover {
+    background-color: #1e5a4e;
+  }
+
+  .tree-container {
+    background-color: #0D3831;
+    padding-bottom: 4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4vh;  
+    margin: 0 auto;
+    height: auto;
+    overflow: visible;
+  }
+
+  .tree-container h6 {
+    color: #F2B034;
+    font-size: 10pt;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: -3vh;
+    margin-top: 4vh;
+  }
+
+  .tree-container h1 {
+    font-size: 32pt;
+    color: white;
+    font-weight: 600;
+    margin-top: 0;
+    font-family: 'Inter', sans-serif;
+  }
+  .WrapperHome{
+    margin-left: 25%;
+  }
