@@ -1,6 +1,12 @@
   .containerHome, .DimensoesHome, .EspecialistasHome,.DimensionsX{
       margin-bottom: 6vh;
   }
+
+  html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
   h1 {
       color: #2B4F46;
       font-weight: 500;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link} from "react-router-dom";
-
 import "./Home.css";
+
 import FotoProjeto from "/amazon.jpg";
 import arrow from '/setaHome.svg';
 
