@@ -136,8 +136,33 @@ const treeData = {
     "Socioeconomic": "#4fc3f7",
     "Poverty": "#81d4fa",
     "Economic": "#f57c00",
-    "Population": "#ffb74d"
-    }
+    "Population": "#f57c00",
+    "Deforestation": "#1C5722",
+    "Forest degradation": "#256A2B",
+    "Fires": "#38983F",
+    "Mining": "#42AF49",
+    "Vegetation fragmentation": "#4CB653",
+    "Remnant forest": "#468549",
+    "Secondary vegetation": "#579F5A",
+    "Pasture": "#78D17B",
+    "Crop": "#89EB8C",
+    "Urban area": "#9AEBAE",
+    "Roads network": "#659F69",
+    "Waterways network": "#9CE1A0",
+    "Ports": "#B7FAC4",
+    "Precipitation": "#84B287",
+    "Minimum temperature": "#C6FAE9",
+    "Malaria": "#145C98",
+    "Chagas": "#1977BE",
+    "Visceral leishmaniasis": "#29ADEA",
+    "Cutaneous leishmaniasis": "#31C2FF",
+    "Dengue": "#39DCFF",
+    "Incidence": "#67AABF",
+    "Intensity": "#9CD8FF",
+    "Multidimensional Index": "#B7E2FF",
+    "Rural population": "#CB6600",
+    "Urban population": "#FF9820"
+  }
   };
     return(
     <div>

@@ -3,6 +3,7 @@ import { Link} from "react-router-dom";
 import "./Footer.css";
 import avLogo from "/logoalt.png";
 import uli from "/ULI.png"
+
 const Footer = () => {
     return (
     <footer className="footer">
@@ -43,7 +44,7 @@ const Footer = () => {
             <p><Link to="/Credits">Credits</Link></p>
           </div>
         </div>
-
+      
       </div>
     </footer>
     );

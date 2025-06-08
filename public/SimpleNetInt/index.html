@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+
+<head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/ico" href="files/favicon.ico">
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>Simple NetInt Sketchpad</title>
+
+    <style>
+        @font-face {
+            font-family: Roboto;
+            src: url(./fonts/Roboto-Light.ttf);
+        }
+    </style>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- GUI Quicksettings -->
+    <script src=https://cdn.jsdelivr.net/npm/quicksettings@latest/quicksettings.min.js></script>
+    <link href="css/quicksettings.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Animation -->
+    <script src="libs/anime.min.js"></script>
+
+    <!-- Matrix operations -->
+    <script src='libs/gl-matrix-min.js'></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gl-matrix@3.4.3/gl-matrix-min.min.js"></script>
+
+    <!-- GUI -->
+    <script src="src/GUI/DOM/DOMManager.js"></script>
+    <script src="src/GUI/ContextualGUIs/ContextualGUI.js"></script>
+
+    <!-- COLOR -->
+    <script src="libs/chroma.min.js"></script>
+
+    <!-- Control -->
+    <script src="src/main.js"></script>
+    <script src="src/canvas/canvas.js"></script>
+    <script src='src/canvas/transformer.js'></script>
+    <script src="src/GUI/forms/addClusterModalForm.js"></script>
+    <script src="src/GUI/forms/addEdgeCategoriesModalForm.js"></script>
+    <script src="src/GUI/forms/addNodeModalForm.js"></script>
+    <script src="src/GUI/forms/exportModalForm.js"></script>
+    <script src="src/GUI/forms/importModalForm.js"></script>
+    
+
+    <!-- Model -->
+    <script src="src/graphElements/node.js"></script>
+    <script src="src/graphElements/connector.js"></script>
+    <script src="src/graphElements/edge.js"></script>
+    <script src="src/graphElements/cluster.js"></script>
+    <script src="src/factories/edgeFactory.js"></script>
+    <script src="src/factories/clusterFactory.js"></script>
+    <script src="src/factories/colorFactory.js"></script>
+    <script src="src/factories/transformerFactory.js"></script>
+
+    <!-- View -->
+    <script src="src/visualElements/VirtualElementPool.js"></script>
+    <script src="src/visualElements/button.js"></script>
+    <script src="src/visualElements/vNode.js"></script>
+    <script src="src/visualElements/vConnector.js"></script>
+    <script src="src/visualElements/vEdge.js"></script>
+    <script src="src/visualElements/vCluster.js"></script>
+    <script src="src/visualElements/layouts/layout.js"></script>
+    <script src="src/visualElements/vGeoCluster.js"></script>
+    <script src="src/canvas/grid.js"></script>
+
+    <!-- Utils-->
+    <script src="src/utilities/utilities.js"></script>
+    <script src="src/utilities/utilitiesNetworkJSON.js"></script>
+
+</head>
+
+<body>
+
+    <div class="collapse show" id="navbarToggleExternalContent" style="position: relative; z-index: 1">
+
+        <!-- EDITOR SECTION -->
+        <div class="menu">
+            <div id="logo"> <img src="files/logo.png" height="20px"> &nbsp Simple NetInt Sketchpad</div>
+
+            <!-- File -->
+            <div class="dropdown">
+                <div class="dropdownTitle" id="fileTitle">File</div>
+                <div class="dropdownContent" id="fileSection">
+                    <div class="customButton">
+                        <div> <label>Network from library</label></div>
+                        <select id="modelChoice">
+                            <option value="0">Empty canvas</option>
+                            <option value="1">Firefly & Serenity Experimental Timeline</option>
+                            <option value="2" selected>Test</option>
+                            <option value="3">VGeoCluster</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <div class="customButton" data-toggle="modal" data-target="#exportNetworkModal">Save/Export file
+                    </div>
+                    <div class="customButton" data-toggle="modal" data-target="#importNetworkModal">Open/Import file
+                    </div>
+                    <div id="version">v. 10_2024</div>
+                </div>
+
+            </div>
+
+            <!-- Network -->
+            <div class="dropdown">
+                <div class="dropdownTitle" id="networkTitle">Network</div>
+                <div class="dropdownContent" id="networkSection">
+
+                    <div class="customButton" data-toggle="modal" data-target="#addClusterModal">Add space</div>
+                    <div class="customButton" data-toggle="modal" data-target="#addNodeModal">Add node</div>
+                    <hr>
+                    <div class="customButton" data-toggle="modal" data-target="#addKindModal">Link Categories</div>
+                    <div class="customButton" id="clearEdges" name="clearEdgs">Clear all links</div>
+                </div>
+            </div>
+
+            <!-- VISUALIZATION SECTION -->
+            <div class="dropdown">
+                <div class="dropdownTitle" id="viewTitle">View</div>
+                <div class="dropdownContent" id="viewSection">
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="grid">
+                        <label class="labelCheckbox" for="grid">Show grid</label><br>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="showTexts" checked>
+                        <label class="labelCheckbox" for="showTexts">Show labels</label><br>
+                    </div>
+                    <hr>
+                    <!-- NODES -->
+                    <div class="sliderItem">
+                        <input type="range" id="nodeConnectorFilter" min="0" max="10" step="1" value="0" />
+                        <label class="labelSlider" for="nodeConnectorFilter">Node connector filter</label>
+                        <label class="labelSlider" for="nodeConnectorFilter">0</label>
+                    </div>
+                    <div class="sliderItem">
+                        <input type="range" id="nodeDegreeFilter" min="0" max="10" step="1" value="0" />
+                        <label class="labelSlider" for="nodeDegreeFilter">Node degree filter</label>
+                        <label class="labelSlider" for="nodeDegreeFilter">0</label>
+                    </div>
+                    <div class="sliderItem">
+                        <input type="range" id="nodeSizeFactor" min="0" max="1" step="0.1" value="1" />
+                        <label class="labelSlider" for="nodeSizeFactor">Node size factor</label>
+                        <label class="labelSlider" for="nodeSizeFactor">0</label>
+                    </div>
+                    <hr>
+                    <!-- EDGES -->
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="showEdges" checked>
+                        <label class="labelCheckbox" for="showEdges">Show all links</label><br>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="showInEdges">
+                        <label class="labelCheckbox" for="showInEdges">Highlight in-links</label><br>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="showOutEdges">
+                        <label class="labelCheckbox" for="showOutEdges">Highlight out-links</label><br>
+                    </div>
+                    <div class="sliderItem">
+                        <input type="range" id="edgeTickness" min="0.1" max="1" step="0.1" value="0.8" />
+                        <label class="labelSlider" for="edgeTickness">Edge tickness factor</label>
+                        <label class="labelSlider" for="edgeTickness">0</label>
+                    </div>
+                    <hr>
+                    <!-- OTHER -->
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="toggle_instructions" checked>
+                        <label class="labelCheckbox" for="toggle_instructions">Instructions legend</label><br>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="magnifyingEffect" checked>
+                        <label class="labelCheckbox" for="magnifyingEffect">Magnifying effect</label><br>
+                    </div>
+                    <hr>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="backgroundContrast" checked>
+                        <label class="labelCheckbox" for="backgroundContrast">Dark background</label><br>
+                    </div>
+                    <hr>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="edit" checked>
+                        <label class="labelCheckbox" for="edit" style=" font-size: .8em">Edge menu</label>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="spaces" checked>
+                        <label class="labelCheckbox" for="spaces" style=" font-size: .8em">Spaces menu</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Propagation -->
+            <div class="dropdown">
+                <div class="dropdownTitle" id="propagationTitle">Propagation</div>
+                <div class="dropdownContent" id="propagationSection">
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="forward" checked>
+                        <label class="labelCheckbox" class="text-muted" for="forward">Successors</label><br>
+                    </div>
+                    <div class="checkboxItem">
+                        <input type="checkbox" id="backward">
+                        <label class="labelCheckbox" class="text-muted" for="backward">Predecessors</label><br>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Links -->
+            <div class="dropdown">
+                <div class="dropdownTitle" id="linksTitle">Filters</div>
+                <div class="dropdownContent" id="filtersB"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <!-- <div class="d-inline-flex flex-row-reverse" style="align-items: initial;"> -->
+        <div onclick="DOM.toggle_visibility('navbarHideableHeader')" data-toggle="collapse"
+            data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <div id="navbarHideableHeader">
+                <div id="menuButton">menu</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Model goes here -->
+    <div id="model" style="position: relative"></div>
+
+
+    <!-- ADD CLUSTER MODAL FORM -->
+    <div class="modal fade" id="addClusterModal" tabindex="-1" role="dialog" aria-labelledby="addClusterModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Add a Space</h3>
+                </div>
+                <div class="modal-body">
+
+                    <h4>Space name</h4>
+                    <p>Each space is an independent canvas</b>. Be sure no other space has the same name</p>
+                    <input id="clusterName" value="Space name"></input>
+                    <hr>
+
+                    <h4>Space Subtitle</h4>
+                    <textarea class="form-control" rows="1" id="clusterDescription">...</textarea>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary  btnSubmit" data-dismiss="modal"
+                        id="SubmitAddClusterModal">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD NODE MODAL FORM -->
+    <div class="modal fade" id="addNodeModal" tabindex="-1" role="dialog" aria-labelledby="addNodeModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Add a node</h3>
+                </div>
+                <div class="modal-body">
+
+
+                    <h4>Node name</h4>
+                    <input id="catName" value="Node name"></input>
+                    <hr>
+                    <h4>Choose the space to which you want to add a node</h4>
+                    <!-- This form is populated with global method addClusterToModalFormList() in addClusterModalForm.js -->
+                    <form action="" id="clusterChoice"></form>
+                    <hr>
+                    <h4>Node description</h4>
+                    <p>Describe briefly the content of the new node. Give credits to third parties if any. </p>
+                    <textarea class="form-control" rows="3" id="catDescription">Node description</textarea>
+                    <hr>
+
+                    </textarea>
+                    <h4>Attributes</h4>
+                    <p>Add attributes in comma separated "key":"value" pairs. </p>
+                    <textarea class="form-control" rows="3" id="catAttributesOther">
+                    "Attribute A":"", "Attribute B":""
+                    </textarea>
+                    <hr>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary btnSubmit" data-dismiss="modal"
+                        id="SubmitAddNodeModal">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXPORT NETWORK MODAL FORM -->
+    <div class="modal fade" id="exportNetworkModal" tabindex="-1" role="dialog" aria-labelledby="exportNetworkModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Save/Export file</h3>
+                </div>
+                <div class="modal-body">
+                    <input id="exportFileSuffix" value="File name"> See file in Downloads folder with ending
+                    -network.json </input>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary btnSubmit" data-dismiss="modal" id="exportNetwork">Export</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- IMPORT NETWORK MODAL FORM -->
+    <div class="modal fade" id="importNetworkModal" tabindex="-1" role="dialog" aria-labelledby="importNetworkModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Import network</h3>
+                </div>
+                <div class="modal-body">
+
+                    <div class="droppable" id="dragDropNetwork">Drag and drop the <b>NETWORK</b> file or click here.
+                        <p id="networkFileName">No file yet.</p>
+                    </div>
+                    <br>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary btnSubmit" data-dismiss="modal" id="importNetwork">Import</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD EDGE CATEGORIES / KIND -->
+    <div class="modal fade" id="addKindModal" tabindex="-1" role="dialog" aria-labelledby="addKindModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Add link categories</h3>
+                </div>
+                <div class="modal-body">
+
+                    <h4>Description</h4>
+                    <p>Categories are kinds of links. For instance two individuals may have different links. The
+                        "friend" category represents the friendship between the nodes. The "classmate" category
+                        represents beign in the academic course.</p>
+
+                    <p>In Simple NetInt every link between nodes must belong to a category. The links are directional.
+                        If you want to represent bidirectional relatioships you need to create a link in each direction.
+                    </p>
+
+                    <p>Enter the categories you want to use in this network separated by comas. For example:
+                        <b>friend,classmate,partner,relative</b>
+                    </p>
+                    <textarea class="form-control" rows="1" id="edgeKinds">default</textarea>
+                    <br>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary  btnSubmit" data-dismiss="modal" id="submitEdgeKinds">Generate
+                        categories</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCREEN MESSAGES -->
+    <div id="screenMessage">
+        <div> Something</div>
+        <div class="dot-flashing"></div>
+    </div>
+
+    <!-- SCRIPTS -->
+</body>
+
+</html>

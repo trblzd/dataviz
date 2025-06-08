@@ -1,0 +1,18 @@
+.ferramenta {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  color: #122c2a;
+}
+
+.ferramenta-title {
+  font-size: 24pt;
+  margin: 2vh auto 1vh;
+  color: #304536;
+  text-align: center;
+}
+
+.ferramenta-graph {
+  flex-grow: 1;
+}

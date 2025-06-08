@@ -1,4 +1,19 @@
 .map-image {
-  width: 70%;
+  width: 80vw;
   height: auto;
+}
+
+.MapasContainer {
+  margin-top: 4vh;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: left; 
+}
+.MapasContainer h1, .MapasContainer h6 {
+  text-align: left; 
+}
+.container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4vh; 
 }
