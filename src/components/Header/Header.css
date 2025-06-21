@@ -69,3 +69,36 @@
 .nav-links a:hover::after {
     width: 100%;
 }
+
+.dropdown-trigger {
+  position: relative;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #18443C;
+  padding: 1vh 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 999;
+  min-width: 200px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.8vh 1vw;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.dropdown-menu a:hover {
+  background-color: #276C5F;
+}
+

@@ -25,10 +25,10 @@ const Footer = () => {
           <div className="footer-links">
             <h3 className="footer-heading">Dimensions</h3>
             <ul>
-              <li><Link to="/Dimensions">Environmental</Link></li>
-              <li><Link to="/Dimensions">Epidemiological</Link></li>
-              <li><Link to="/Dimensions">Socioeconomic</Link></li>
-              <li><Link to="/Dimensions">Economic</Link></li>
+              <li><Link to="/Dimensions?dim=environmental">Environmental</Link></li>
+              <li><Link to="/Dimensions?dim=epidemiological">Epidemiological</Link></li>
+              <li><Link to="/Dimensions?dim=socioeconomic">Socioeconomic</Link></li>
+              <li><Link to="/Dimensions?dim=economic">Economic</Link></li>
             </ul>
           </div>
         </div>

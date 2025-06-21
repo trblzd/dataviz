@@ -94,11 +94,10 @@ const treeData = {
       name: "Socioeconomic",
       children: [
         {
-          name: "Poverty",
+          name: "Population",
           children: [
-            { name: "Incidence" },
-            { name: "Intensity" },
-            { name: "Multidimensional Index" }
+            { name: "Rural population" },
+            { name: "Urban population" }
           ]
         }
       ]
@@ -107,10 +106,9 @@ const treeData = {
       name: "Economic",
       children: [
         {
-          name: "Population",
+          name: "Poverty",
           children: [
-            { name: "Rural population" },
-            { name: "Urban population" }
+            { name: "Deprivations Indicators" },
           ]
         }
       ]
@@ -133,9 +131,9 @@ const treeData = {
     "Climatic anomalies": "#a5d6a7",
     "Epidemiological": "#1976d2", 
     "Occurrence of diseases": "#2196f3",
-    "Socioeconomic": "#4fc3f7",
+    "Socioeconomic": "#f57c00",
     "Poverty": "#81d4fa",
-    "Economic": "#f57c00",
+    "Economic": "#4fc3f7",
     "Population": "#f57c00",
     "Deforestation": "#1C5722",
     "Forest degradation": "#256A2B",
@@ -157,9 +155,7 @@ const treeData = {
     "Visceral leishmaniasis": "#29ADEA",
     "Cutaneous leishmaniasis": "#31C2FF",
     "Dengue": "#39DCFF",
-    "Incidence": "#67AABF",
-    "Intensity": "#9CD8FF",
-    "Multidimensional Index": "#B7E2FF",
+    "Deprivations Indicators": "#67AABF",
     "Rural population": "#CB6600",
     "Urban population": "#FF9820"
   }
