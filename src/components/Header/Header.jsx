@@ -38,7 +38,7 @@ function Header() {
                             className="dropdown-trigger" 
                             onClick={() => setShowDropdown(prev => !prev)}
                         >
-                            Dimensions ▾
+                            Dimensions
                             {showDropdown && (
                             <div className="dropdown-menu">
                                 <Link to="/Dimensions?dim=environmental">Environmental</Link>

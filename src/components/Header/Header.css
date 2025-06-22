@@ -51,7 +51,7 @@
     position: relative;
 }
 
-.nav-links a:hover {
+.nav-links a:hover, .dropdown-trigger:hover  {
     color: #F2B034;
 }
 
@@ -82,9 +82,8 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #18443C;
+  background-color: #0F221E;
   padding: 1vh 0;
-  border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   z-index: 999;
   min-width: 200px;
@@ -96,9 +95,5 @@
   color: white;
   text-decoration: none;
   font-size: 16px;
-}
-
-.dropdown-menu a:hover {
-  background-color: #276C5F;
 }
 

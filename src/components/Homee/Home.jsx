@@ -15,7 +15,7 @@ import Tobias from "/tobias.png";
 import Carol from "/carolina.png";
 import Pessoa4 from "/pessoa3.jpg";
 
-import Amazonia from "/amazonialegal.jpg";
+import Amazonia from "/amazonialegal.svg";
 import rec from "/rec.png";
 import CVerde from "/circuloverdeHome.svg";
 import CAmarelo from "/circuloamareloHome.svg";
@@ -196,37 +196,37 @@ const treeData = {
                     <img src={IconEnv} alt="Elipse" className="ElipsesHome" />
                     <p className="elipseTitle">Environmental</p>
                     <p className="elipseDesc">Biodiversity loss, land use changes, and climate anomalies in the Amazon are deeply interconnected.</p>
-                    <button className="elipseButton">
+                    <Link to="/Dimensions?dim=environmental"><button className="elipseButton">
                         <img src={arrow} alt="Arrow" className="arrow-icon" />
                         <span>See the indicators</span>
-                    </button>
+                    </button></Link>
                 </div>
                 <div className="elipseItem">
                     <img src={IconEpi} alt="Elipse" className="ElipsesHome" />
                     <p className="elipseTitle">Epidemiological</p>
                     <p className="elipseDesc">Biodiversity loss, land use changes, and climate anomalies in the Amazon are deeply interconnected.</p>
-                    <button className="elipseButton">
+                    <Link to="/Dimensions?dim=epidemiological"><button className="elipseButton">
                         <img src={arrow} alt="Arrow" className="arrow-icon" />
                         <span>See the indicators</span>
-                    </button>
+                    </button></Link>
                 </div>
                 <div className="elipseItem">
                     <img src={IconSoc} alt="Elipse" className="ElipsesHome" />
                     <p className="elipseTitle">Socioeconomic</p>
                     <p className="elipseDesc">Biodiversity loss, land use changes, and climate anomalies in the Amazon are deeply interconnected.</p>
-                    <button className="elipseButton">
+                    <Link to="/Dimensions?dim=socioeconomic"><button className="elipseButton">
                         <img src={arrow} alt="Arrow" className="arrow-icon" />
                         <span>See the indicators</span>
-                    </button>
+                    </button></Link>
                 </div>
                 <div className="elipseItem">
                     <img src={IconEco} alt="Elipse" className="ElipsesHome" />
                     <p className="elipseTitle">Economic</p>
                     <p className="elipseDesc">Biodiversity loss, land use changes, and climate anomalies in the Amazon are deeply interconnected.</p>
-                    <button className="elipseButton">
+                    <Link to="/Dimensions?dim=economic"><button className="elipseButton">
                         <img src={arrow} alt="Arrow" className="arrow-icon" />
                         <span>See the indicators</span>
-                    </button>
+                    </button></Link>
                 </div>
             </div>
         </div>
@@ -348,7 +348,7 @@ const treeData = {
                 <li>The <strong>socioeconomic indicators</strong>, are rural and urban populations.</li>    
                 <li>The <strong>economic indicators</strong>, characterize the multidimensional poverty index of rural and urban populations.</li>
             </ul>
-                <Link to="/#"><button className="datasetButton">
+                <Link to="https://www.nature.com/articles/s41597-023-01962-1" target="_blank"><button className="datasetButton">
                     <span>Access the Trajetórias Dataset</span>
                     <img src={arrow} alt="Arrow" className="arrow-icon" />
                 </button></Link>

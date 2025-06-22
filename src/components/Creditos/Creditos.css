@@ -1,10 +1,6 @@
-.creditos a {
+.creditos p {
     color: #000000;
     text-decoration: none;
-}
-
-.creditos a:hover {
-    text-decoration: underline;
 }
 
 .creditos h1 {
