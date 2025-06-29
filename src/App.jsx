@@ -38,7 +38,7 @@ function App() {
     <HashRouter>
       <div>
         <Header />
-        <button onClick={topFunction} id="myBtn" className={showBtn} title="Go to top">⇪</button>
+        <button onClick={topFunction} id="myBtn" className={showBtn} title="Go to top">🔝</button>
         <Suspense fallback={<h1>Loading...</h1>}>
           <Routes>
             <Route path="/" element={<Home />} />

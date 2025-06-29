@@ -1,120 +1,196 @@
-  .footer {
+.footer {
     background-color: #122c2a;
     color: #fff;
     padding: 4.5vh 2vw;
     box-sizing: border-box;
-  }
+}
 
-  .footer-content {
+.footer-content {
     max-width: 1200px;
     margin: 0 auto;
-  }
+}
 
-  .footer-top {
+.footer-top {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
     padding-bottom: 3.5vh;
-  }
+}
 
-  .footer-logo .amazon-views-logo {
-    max-width: 15vw;
-    margin-right: 30vw;
+.footer-logo {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+.footer-logo .amazon-views-logo {
+    max-width: 35vw; 
     height: auto;
-  }
+}
 
-  .footer-links {
-    margin-right: 0;
-  }
+.footer-links {
+    margin-bottom: 2vh;
+    text-align: center;
+    width: 100%;
+}
 
-  .footer-links:first-of-type {
-      margin-left: 0;
-  }
-  .footer-links:last-of-type {
-      margin-right: 0; 
-  }
+@media (min-width: 768px) {
+    .footer-logo {
+        flex-basis: 35%;
+        text-align: left;
+        margin-bottom: 0;
+    }
+    .footer-logo .amazon-views-logo {
+        max-width: 20vw; 
+    }
+    .footer-links {
+        width: auto;
+        text-align: left;
+        margin-bottom: 0;
+    }
+    .footer-links:first-of-type {
+        margin-left: 0;
+    }
+    .footer-links:last-of-type {
+        margin-right: 0;
+    }
+}
 
-  .footer-heading {
+
+.footer-heading {
     color: #F2B034;
-    font-size: 16pt;
+    font-size: clamp(18pt, 3vw, 22pt); 
     margin-bottom: 1.5vh;
-    font-weight: 400; 
-  }
+    font-weight: 400;
+}
 
-  .footer-links ul {
+.footer-links ul {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
+}
 
-  .footer-links li {
+.footer-links li {
     margin-bottom: 0.8vh;
+    transition: color 0.3s ease;
+}
+
+.footer-links a,
+.footer-links a:visited,
+.footer-links a:active {
     color: #fff;
     text-decoration: none;
-    font-size: 14pt;
-    transition: color 0.3s ease;
-    font-weight: 200; 
-  }
+    font-size: clamp(14pt, 2.5vw, 16pt); 
+    font-weight: 200;
+}
 
-  .footer-links li:hover {
+.footer-links a:hover {
     color: #F2B034;
-  }
+}
 
-  .footer-divider {
+.footer-divider {
     border: none;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     margin: 3.5vh 0;
-  }
+}
 
-  .footer-bottom {
+.footer-bottom {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     padding-top: 2.5vh;
-  }
-
-  .footer-partners .partners-logo {
-    max-width: 25vw;
-    height: auto;
-  }
-
-  .footer-credits a {
-    color: #F2B034;
-    text-decoration: none;
-    font-size: 14pt;
-  }
-
-  .footer-credits a:hover {
-    text-decoration: none;
-    color:#fff;
-  }
-
-  .footer-links a,
-.footer-links a:visited,
-.footer-links a:hover,
-.footer-links a:active {
-  color: #fff;
-  text-decoration: none;
-  font-size: 14pt;
-  font-weight: 200;
 }
 
-.footer-links a:hover {
-  color: #F2B034;
+.footer-partners {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2vh;
+}
+
+.footer-partners .partners-logo {
+    max-width: 95%; 
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.footer-credits {
+    width: 100%;
+    text-align: center;
 }
 
 .footer-credits a,
 .footer-credits a:visited,
-.footer-credits a:hover,
 .footer-credits a:active {
-  color: #F2B034;
-  text-decoration: none;
-  font-size: 14pt;
+    color: #F2B034;
+    text-decoration: none;
+    font-size: clamp(14pt, 2.5vw, 16pt);
 }
 
 .footer-credits a:hover {
-  color: #fff;
+    color: #fff;
 }
 
+
+@media (min-width: 768px) {
+    .footer-top {
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .footer-logo {
+        flex-basis: auto;
+        margin-bottom: 0;
+        text-align: left;
+    }
+
+    .footer-logo .amazon-views-logo {
+        max-width: 20vw; 
+    }
+
+    .footer-links {
+        text-align: left;
+        margin-bottom: 0;
+        flex-basis: auto;
+    }
+
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-partners {
+        width: auto;
+        text-align: left;
+        margin-bottom: 0;
+    }
+
+    .footer-partners .partners-logo {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .footer-credits {
+        width: auto;
+        text-align: right;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-logo .amazon-views-logo {
+        max-width: 50vw; 
+    }
+    .footer-heading {
+        font-size: 18pt; 
+    }
+    .footer-links a {
+        font-size: 14pt;
+    }
+    .footer-credits a {
+        font-size: 14pt; 
+    }
+}

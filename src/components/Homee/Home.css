@@ -1,32 +1,33 @@
-.DimensoesHome, .EspecialistasHome,.DimensionsX{
-      margin-bottom: 6vh;
-  }
-
-  html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+.DimensoesHome, .EspecialistasHome, .DimensionsX {
+    margin-bottom: 6vh;
 }
 
-  h1 {
-      color: #2B4F46;
-      font-weight: 500;
-      text-align: center;
-      margin: 0 auto;
-      padding: 0 auto;
-  }
-  h6 {
-      color: #F2B034;
-      text-align: center;
-      font-size: 14pt;
-      font-weight: 400;
-      margin: 0 auto;
-      padding: 0 auto;
-  }
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+h1 {
+    color: #2B4F46;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+h6 {
+    color: #F2B034;
+    text-align: center;
+    font-size: 14pt;
+    font-weight: 400;
+    margin: 0 auto;
+    padding: 0 auto;
+}
 
 .containerHome {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
+    grid-template-areas:
         "titulo ilustracao"
         "texto ilustracao"
         "botao ilustracao";
@@ -40,6 +41,9 @@
     box-sizing: border-box;
     overflow-x: hidden;
     max-width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .containerHome h1 {
@@ -70,13 +74,12 @@
     padding-top: 7%;
     scale: 1.2;
     grid-row: 1 / span 2;
-    z-index: 3; 
+    z-index: 3;
     max-width: 100%;
     height: auto;
 }
 
 .Scroll {
-    grid-area: botao;
     display: inline-flex;
     align-items: center;
     gap: 0.6vw;
@@ -90,90 +93,114 @@
     text-decoration: none;
     width: fit-content;
 }
+
+.Scroll .scroll-icon {
+    width: clamp(16px, 2vw, 24px);
+    height: auto;
+}
+
 #Gradiente {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: 2;
-  mix-blend-mode: multiply;
-  pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    mix-blend-mode: multiply;
+    pointer-events: none;
 }
 
 #FotoProjeto {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: 1;
-  opacity: 0.5;
-  mix-blend-mode: color-dodge;
-  pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.5;
+    mix-blend-mode: color-dodge;
+    pointer-events: none;
 }
-
 
 .containerHome > *:not(#FotoProjeto):not(#Gradiente) {
     position: relative;
     z-index: 4;
 }
 
-  #Elipses {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6vw;
-  }
+.DimensoesHome {
+    margin-top: 4vh;
+    padding-bottom: 2vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    color: #4D504D;
+}
 
-  .DimensoesHome {    
-      margin-top: 4vh;
-      padding-bottom: 2vh;
-      margin-left: 15%;
-      margin-right: 15%;
-      color: #4D504D;
-  }
+.DimensoesHome h1 {
+    font-size: 38pt;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 2vh;
+}
 
-  #Elipses {
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh 0;
+    overflow: hidden;
+}
+
+#Elipses {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: flex-start;
     gap: 4vw;
-    padding: 2vh 0;
-  }
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    flex-wrap: nowrap;
+}
 
-  .elipseItem {
+.elipseItem {
+    flex: 0 0 auto;
     text-align: center;
-    width: 14vw;
-  }
+    width: 20vw;
+    max-width: 250px;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-  .ElipsesHome {
+.ElipsesHome {
     width: 100%;
     height: auto;
     transition: transform 0.5s ease;
-  }
+}
 
-  .ElipsesHome:hover {
+.ElipsesHome:hover {
     transform: scale(1.05);
-  }
+}
 
-  .elipseTitle {
+.elipseTitle {
     color: #2B4F46;
     font-weight: 450;
     margin-top: 0.5rem;
     font-size: 24pt;
-  }
+}
 
-  .elipseDesc {
+.elipseDesc {
     font-size: 14pt;
     color: #4D504D;
-  }
+    flex-grow: 1;
+}
 
-  .elipseButton{
+.elipseButton {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     padding: 1.2vh 1.7vw;
     font-size: 14pt;
@@ -184,25 +211,57 @@
     background-color: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
-  }
-  .EspecialistasHome {
+    white-space: nowrap;
+    width: fit-content;
+    margin-top: auto;
+}
+
+.carousel-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-button.prev {
+    left: 5%;
+}
+
+.carousel-button.next {
+    right: 5%;
+}
+
+.EspecialistasHome {
     padding: 4vh 5vw;
     text-align: center;
-  }
-  .EspecialistasHome h1 {
-    font-size: 38pt;
-  }
+}
 
-  #Pessoas {
+.EspecialistasHome h1 {
+    font-size: 38pt;
+}
+
+#Pessoas {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-  }
+    gap: 1.5rem;
+    flex-wrap: wrap; 
+}
 
-  .PessoasFoto {
-    width: 280px;
+.PessoasFoto {
+    width: 250px; 
     background: linear-gradient(to bottom, #ffffff 55%, #f5f8f5 45%);
     border-radius: 1.5rem;
     box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.1);
@@ -211,35 +270,35 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
+}
 
-  .PessoasFoto:hover {
+.PessoasFoto:hover {
     transform: scale(1.03);
-  }
+}
 
-  .PessoasFoto img {
+.PessoasFoto img {
     width: 100%;
-    height: 320px;
+    height: auto;
     object-fit: cover;
-  }
+}
 
-  .PessoasFoto h1 {
+.PessoasFoto h1 {
     font-family: 'Inter', sans-serif;
-    font-size: 1.25rem;
+    font-size: 14pt;
     font-weight: 700;
     margin: 1rem 1rem 0 1rem;
     color: #243528;
     text-align: left;
-  }
+}
 
-  .PessoasFoto p {
+.PessoasFoto p {
     font-size: 0.95rem;
     margin: 0.3rem 1rem 1.5rem 1rem;
     color: #3f4f45;
     text-align: left;
-  }
+}
 
-  .PessoasFoto a {
+.PessoasFoto a {
     text-decoration: none;
     color: #236e4a;
     font-weight: 500;
@@ -250,76 +309,73 @@
     justify-content: flex-start;
     gap: 0.4rem;
     transition: color 0.3s ease;
-  }
+}
 
-  .PessoasFoto a:hover {
+.PessoasFoto a:hover {
     color: #1a5e3c;
-  }
+}
 
-  .PessoasFoto a::after {
-    content: "→";
-    color: #f4b230;
-    font-size: 1rem;
-  }
-
-  .AmazoniaLegal {
+.AmazoniaLegal {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 2vh;
-    padding: 4vh 4vw;
+    gap: 4vh;
+    padding: 6vh 4vw;
     background: linear-gradient(to bottom right, #0e2c23, #102f29);
-  }
-  .AmazoniaLegal h1 {
+}
+
+.AmazoniaLegal h1 {
     color: #F2B034;
     font-weight: 350;
-  }
-  .AmazoniaLegalDv {
-      margin-left: 15%;
-      margin-right: 15%;
-  }
-  .AmazoniaContent {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 4vw;
+    font-size: clamp(32pt, 4vw, 48pt);
+}
+
+.AmazoniaLegalDv {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    max-width: 1200px;
+}
+
+#sb {
+    font-size: clamp(14pt, 1.5vw, 18pt);
+    color: #ffffff;
+    margin-bottom: 4vh;
+}
+
+.AmazoniaNumDivsWrapper {
     width: 100%;
-    max-width: 1400px;
-  }
+    position: relative;
+    padding: 2vh 0;
+    overflow: hidden;
+}
 
-  #imgdv {
-      height: 8vh;
-      width: auto;
-  }
-
-  #num {
-      font-size: 60pt;
-  }
-
-  #sb {
-      font-size: 16pt;
-      color: #ffffff;
-  }
-  .AmazoniaImg {
-    height: 60vh;
-    max-height: 500px;
-    border-radius: 1rem;
-    object-fit: contain;
-    flex: 1;
-    min-width: 300px;
-  }
-
-  .InfoAmazonia {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.AmazoniaNumDivs {
+    display: flex;
     gap: 2rem;
-    flex: 1.2;
-    min-width: 350px;
-  }
+    padding: 1rem;
+    white-space: nowrap;
+    width: max-content;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: none;
+    animation: none;
+}
 
-  .NumDivs {
+.AmazoniaNumDivs.carousel-active {
+    animation: scroll-carousel 30s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+    flex-wrap: nowrap;
+}
+
+.AmazoniaNumDivs.carousel-active:hover {
+    animation-play-state: paused;
+}
+
+.NumDivs {
+    flex: 0 0 auto;
     background-color: rgba(255, 255, 255, 0.06);
     border-radius: 16px;
     padding: 1.5rem;
@@ -328,55 +384,78 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 15vh;
-    width: 10vw;
+    min-height: 15vh;
+    width: clamp(180px, 20vw, 280px);
     transition: transform 0.3s ease;
-  }
+    box-sizing: border-box;
+    white-space: normal;
+}
 
-  .NumDivs:hover {
+.NumDivs:hover {
     transform: scale(1.04);
-  }
+}
 
-  .NumDivs p {
+.NumDivs p {
     margin: 0.3rem 0;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
     color: #ffffff;
     font-weight: 300;
-  }
+}
 
-  .NumDivs strong {
+.NumDivs strong {
     color: #ffffff;
     font-weight: 600;
-  }
+}
 
-  .NumDivs svg, .NumDivs img {
-    width: 30px;
-    height: 30px;
+.NumDivs svg,
+.NumDivs img {
+    width: clamp(25px, 2.5vw, 40px);
+    height: auto;
     margin-bottom: 0.6rem;
-  }
+}
 
-  .NumDivs:nth-child(4) p:first-child,
-  .NumDivs:nth-child(5) p:first-child {
-    font-size: 2.2rem;
-    color: #f9b22d;
-    font-weight: bold;
-  }
+#imgdv {
+    height: auto;
+    width: clamp(25px, 2.5vw, 40px);
+}
 
+#num {
+    font-size: clamp(36pt, 4vw, 60pt);
+}
 
-  .DTool {
+@keyframes scroll-carousel {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-50% - 1rem));
+    }
+}
+
+.AmazoniaImgBottom {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: contain;
+    margin-top: 6vh;
+    display: block;
+}
+
+.DTool {
     position: relative;
     width: 100%;
     height: auto;
-  }
+}
 
-  #tool {
+#tool {
     width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
-  }
+}
 
-  .toolButton {
+.toolButton {
     position: absolute;
     top: 70%;
     left: 50%;
@@ -395,19 +474,19 @@
     transition: all 0.3s ease;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     z-index: 2;
-  }
+}
 
-  .toolButton:hover {
+.toolButton:hover {
     background-color: #1e5a4e;
     transform: translate(-50%, -50%) scale(1.05);
-  }
+}
 
-  .arrow-icon {
-    width: 2vw;
+.arrow-icon {
+    width: clamp(16px, 1.5vw, 24px);
     height: auto;
-  }
+}
 
-  .Artigo {
+.Artigo {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4vw;
@@ -415,62 +494,55 @@
     padding: 8vh 10vw;
     background-color: #0F221E;
     color: #ffffff;
-  }
+}
 
-  .ArtigoText {
+.ArtigoText {
     display: flex;
     flex-direction: column;
     gap: 2vh;
     text-align: left;
-  }
+}
 
-  .ArtigoText h6 {
+.ArtigoText h6 {
     color: #ffffff;
     text-align: left;
     margin-bottom: -3vh;
     padding: 0;
     justify-content: flex-start;
     width: 100%;
-  }
+}
 
-  .ArtigoText h1 {
+.ArtigoText h1 {
     color: #F2B034;
     text-align: left;
     margin: 0;
     padding: 0;
     justify-content: flex-start;
     width: 100%;
-  }
+}
 
-  .Artigo p {
+.Artigo p {
     font-size: 14pt;
     line-height: 1.6;
     max-width: 100%;
-  }
+}
 
-  .Artigo ul {
+.Artigo ul {
     font-size: 11pt;
     line-height: 1.6;
     list-style-type: disc;
     padding-left: 1.2em;
-  }
+}
 
-  .Artigo ul li {
+.Artigo ul li {
     margin-bottom: 1vh;
-  }
+}
 
-  .Artigo strong {
+.Artigo strong {
     font-weight: 800;
-  }
+}
 
-  .ArtigoImagem {
-    max-width: 100%;
-    height: auto;
-    align-self: center;
-    justify-self: center;
-  }
-
-  .datasetButton {
+.datasetButton {
     display: inline-flex;
     align-items: center;
     gap: 0.6vw;
@@ -486,41 +558,654 @@
     transition: all 0.3s ease;
     margin-top: 2vh;
     width: fit-content;
-  }
+}
 
-  .datasetButton:hover {
+.datasetButton:hover {
     background-color: #1e5a4e;
-  }
+}
 
-  .tree-container {
+.ArtigoImagem {
+    max-width: 100%;
+    height: auto;
+    align-self: center;
+    justify-self: center;
+}
+
+.tree-container {
     background-color: #0D3831;
     padding-bottom: 4vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 4vh;  
+    gap: 4vh;
     margin: 0 auto;
     height: auto;
     overflow: visible;
-  }
+}
 
-  .tree-container h6 {
+.tree-container h6 {
     color: #F2B034;
     font-size: 10pt;
     font-weight: 500;
     letter-spacing: 1px;
     margin-bottom: -3vh;
     margin-top: 4vh;
-  }
+}
 
-  .tree-container h1 {
+.tree-container h1 {
     font-size: 32pt;
     color: white;
     font-weight: 600;
     margin-top: 0;
     font-family: 'Inter', sans-serif;
-  }
-  .WrapperHome{
+}
+
+.WrapperHome {
     margin-left: 25%;
-  }
+}
+
+.header {
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.5s ease;
+}
+
+.header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.header.static {
+    position: static;
+}
+
+.header-container {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5vh 2vw;
+}
+
+.header.transparent {
+    background-color: transparent;
+}
+
+.header.solid {
+    background-color: #0F221E;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo img {
+    height: 6vh;
+    transition: all 0.5s ease;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+}
+
+.nav-links a {
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: clamp(16pt, 1.5vw, 20px);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover,
+.dropdown-trigger:hover {
+    color: #F2B034;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #F2B034;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.dropdown-trigger {
+    position: relative;
+    cursor: pointer;
+    color: white;
+    font-size: clamp(16pt, 1.5vw, 20px);
+    font-weight: 500;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0F221E;
+    padding: 1vh 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    min-width: 200px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.8vh 1vw;
+    color: white;
+    text-decoration: none;
+    font-size: 12pt;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 0.4vh;
+    z-index: 1001;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+@media (min-width: 1192px) {
+    #Pessoas {
+        flex-wrap: nowrap; 
+        gap: 1.5rem; 
+    }
+
+    .PessoasFoto {
+        width: 250px; 
+        flex-shrink: 0; 
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1191px) {
+    #Pessoas {
+        flex-wrap: nowrap; 
+        justify-content: center; 
+        gap: 1vw; 
+        padding: 0 2vw; 
+    }
+
+    .PessoasFoto {
+        width: calc(25% - 1.5vw); 
+        min-width: 180px; 
+        max-width: 230px; 
+        flex-shrink: 1; 
+    }
+}
+
+
+@media (min-width: 901px) {
+    .AmazoniaNumDivs {
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        white-space: normal;
+        animation: none;
+    }
+
+    .NumDivs {
+        flex: 0 0 calc(33.33% - 2rem);
+        max-width: 300px;
+        box-sizing: border-box;
+    }
+    @media (min-width: 1200px) {
+        .NumDivs {
+            flex: 0 0 calc(25% - 2rem);
+            max-width: 280px;
+        }
+    }
+    @media (min-width: 1500px) {
+        .NumDivs {
+            flex: 0 0 calc(20% - 2rem);
+            max-width: 250px;
+        }
+    }
+}
+
+
+@media (min-width: 1500px) {
+    .carousel-button {
+        display: none;
+    }
+
+    #Elipses {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 2vw;
+        padding: 0 5%;
+    }
+
+    .elipseItem {
+        width: 22%;
+        max-width: 280px;
+        min-width: 200px;
+    }
+
+    .DimensoesHome {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .DimensoesHome h1 {
+        font-size: 42pt;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 1499px) and (min-width: 901px) {
+    #Elipses {
+        gap: 2vw;
+        flex-wrap: nowrap;
+    }
+
+    .elipseItem {
+        width: 30vw;
+        min-width: 200px;
+        max-width: 280px;
+    }
+
+    .carousel-button {
+        display: flex;
+    }
+
+    .carousel-button.prev {
+        left: 2%;
+    }
+
+    .carousel-button.next {
+        right: 2%;
+    }
+
+    .DimensoesHome h1 {
+        font-size: clamp(28pt, 4.5vw, 36pt);
+        font-weight: 600;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 900px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #0F221E;
+        flex-direction: column;
+        gap: 2vh;
+        padding: 3vh 5vw;
+        transform: translateY(-200%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+
+    .nav-links.open {
+        transform: translateY(0);
+    }
+
+    .dropdown-trigger {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1vh;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        background-color: transparent;
+        text-align: center;
+        margin-top: 1vh;
+    }
+
+    .dropdown-menu a {
+        padding: 1vh 0.5vw;
+        font-size: 14pt;
+        color: #F2B034;
+    }
+
+    .nav-links a {
+        font-size: 14pt;
+    }
+
+    .nav-links a:hover,
+    .dropdown-trigger:hover {
+        color: inherit;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .header.mobile-menu-open {
+        background-color: #0F221E;
+    }
+
+    .containerHome {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "ilustracao"
+            "titulo"
+            "texto"
+            "botao";
+        padding: 5vh 5vw;
+        min-height: 80vh;
+        height: auto;
+        gap: 2vh;
+    }
+
+    #ilustrahome {
+        grid-area: ilustracao;
+        justify-self: center;
+        align-self: start;
+        padding-top: 0;
+        scale: 1;
+        max-width: 80%;
+        margin-bottom: 2vh;
+    }
+
+    .containerHome h1,
+    .containerHome p,
+    .Scroll {
+        text-align: center;
+        margin: 0 auto;
+        align-self: center;
+        padding-bottom: 0;
+        max-width: 90%;
+    }
+
+    .containerHome h1 {
+        font-size: clamp(32pt, 6vw, 40pt);
+    }
+
+    .containerHome p {
+        font-size: clamp(14pt, 2.5vw, 18pt);
+    }
+
+    .Scroll {
+        padding: 1.5vh 4vw;
+        font-size: clamp(12pt, 2vw, 16pt);
+        gap: 1vw;
+    }
+
+    .Scroll .scroll-icon {
+        width: clamp(16px, 4vw, 24px);
+    }
+
+    #Gradiente,
+    #FotoProjeto {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .DimensoesHome {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .DimensoesHome h1 {
+        font-size: clamp(24pt, 5vw, 32pt);
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    #Elipses {
+        gap: 2vw;
+        flex-wrap: nowrap;
+    }
+
+    .elipseItem {
+        width: 45vw;
+        min-width: 200px;
+        max-width: 300px;
+    }
+
+    .carousel-button {
+        display: flex;
+        padding: 8px 12px;
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-button.prev {
+        left: 2%;
+    }
+
+    .carousel-button.next {
+        right: 2%;
+    }
+
+    .Artigo {
+        grid-template-columns: 1fr;
+        padding: 6vh 6vw;
+    }
+
+    .ArtigoText h6,
+    .ArtigoText h1 {
+        text-align: center;
+    }
+
+    .ArtigoText {
+        align-items: center;
+    }
+
+    .AmazoniaLegal {
+        padding: 4vh 2vw;
+        gap: 3vh;
+    }
+
+    .AmazoniaLegalDv {
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 96%;
+    }
+
+    .AmazoniaNumDivsWrapper {
+        overflow: hidden;
+    }
+
+    .AmazoniaNumDivs {
+        gap: 1.5rem;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        width: max-content;
+    }
+
+    .NumDivs {
+        min-height: 12vh;
+        width: clamp(140px, 35vw, 220px);
+    }
+
+    .AmazoniaImgBottom {
+        width: 90%;
+        margin-top: 4vh;
+    }
+
+    #num {
+        font-size: clamp(30pt, 5vw, 48pt);
+    }
+}
+
+@media (max-width: 600px) {
+    .containerHome {
+        padding: 4vh 4vw;
+        min-height: 70vh;
+    }
+
+    #ilustrahome {
+        max-width: 95%;
+        margin-bottom: 2vh;
+    }
+
+    .containerHome h1 {
+        font-size: clamp(28pt, 7vw, 36pt);
+    }
+
+    .containerHome p {
+        font-size: clamp(12pt, 3vw, 16pt);
+    }
+
+    .Scroll {
+        padding: 2vh 5vw;
+        font-size: clamp(10pt, 2.5vw, 14pt);
+        gap: 2vw;
+    }
+
+    .Scroll .scroll-icon {
+        width: clamp(16px, 5vw, 24px);
+    }
+
+    #Elipses {
+        gap: 2vw;
+        flex-wrap: nowrap;
+    }
+
+    .elipseItem {
+        width: 80vw;
+        max-width: 300px;
+    }
+
+    .carousel-button {
+        display: flex;
+        left: 0.5%;
+        right: 0.5%;
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .AmazoniaContent {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .AmazoniaImg {
+        height: auto;
+        max-height: 40vh;
+        width: 100%;
+    }
+
+    .InfoAmazonia {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        min-width: unset;
+    }
+
+    .NumDivs {
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .DTool .toolButton {
+        padding: 1.5vh 5vw;
+        font-size: 12pt;
+        gap: 0.8vw;
+    }
+
+    .Artigo {
+        padding: 4vh 4vw;
+    }
+
+    .ArtigoText p,
+    .Artigo ul {
+        font-size: 10pt;
+    }
+
+    .ArtigoText ul {
+        padding-left: 1em;
+    }
+
+    .DimensoesHome h1 {
+        font-size: clamp(20pt, 6vw, 28pt);
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .AmazoniaLegal {
+        padding: 3vh 1vw;
+        gap: 2vh;
+    }
+
+    .AmazoniaLegalDv {
+        margin-left: 1%;
+        margin-right: 1%;
+        width: 98%;
+    }
+
+    .AmazoniaLegal h1 {
+        font-size: clamp(24pt, 6vw, 36pt);
+    }
+
+    #sb {
+        font-size: clamp(12pt, 2vw, 16pt);
+    }
+
+    .AmazoniaNumDivs {
+        gap: 1rem;
+        animation: scroll-carousel 20s linear infinite;
+    }
+
+    .NumDivs {
+        min-height: 10vh;
+        width: clamp(120px, 50vw, 200px);
+        padding: 1rem;
+    }
+
+    .AmazoniaImgBottom {
+        width: 95%;
+        margin-top: 3vh;
+    }
+
+    #num {
+        font-size: clamp(24pt, 6vw, 40pt);
+    }
+
+    .NumDivs p {
+        font-size: clamp(0.8rem, 1.5vw, 1rem);
+    }
+
+    .NumDivs svg,
+    .NumDivs img {
+        width: clamp(20px, 4vw, 30px);
+    }
+
+    #Pessoas {
+        flex-wrap: wrap;
+        justify-content: center; 
+        gap: 1.5rem; 
+    }
+
+    .PessoasFoto {
+        width: calc(50% - 1.5rem); 
+        max-width: 250px; 
+        min-width: unset;
+    }
+}

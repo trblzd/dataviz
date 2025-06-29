@@ -62,13 +62,13 @@
 
 .PessoasFotoHelp img {
   width: 100%;
-  height: 220px;
+  height: auto;
   object-fit: cover;
 }
 
 .PessoasFotoHelp h1 {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: 14pt;
   font-weight: 700;
   margin: 0.8rem 0.8rem 0 0.8rem;
   color: #243528;
@@ -76,7 +76,7 @@
 }
 
 .PessoasFotoHelp p {
-  font-size: 0.8rem;
+  font-size: 12pt;
   margin: 0.2rem 0.8rem 1rem 0.8rem;
   color: #3f4f45;
   text-align: left;
@@ -97,12 +97,6 @@
 
 .PessoasFotoHelp a:hover {
   color: #1a5e3c;
-}
-
-.PessoasFotoHelp a::after {
-  content: "→";
-  color: #f4b230;
-  font-size: 0.9rem;
 }
 
 details {
@@ -143,4 +137,25 @@ ol {
 
 .help-button:hover {
   background-color: #d49a2a;
+}
+
+.help-useful-links a {
+  color: #243528;
+  text-decoration: none;
+  font-size: 14pt;
+  font-weight: 600;
+}
+
+.help-useful-links a:hover {
+  color: #1a5e3c;
+  text-decoration: none;
+}
+.help-useful-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.help-useful-links li {
+  padding-bottom: 1vh;
 }

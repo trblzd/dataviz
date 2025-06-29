@@ -1,16 +1,41 @@
 .creditos p {
     color: #000000;
     text-decoration: none;
+    margin: 0 auto;
 }
 
 .creditos h1 {
     margin-top: 5vh;
-    margin-bottom: 3vh;
+    margin-bottom: 2vh;
 }
 
 .creditos {
     text-align: justify;
     margin-left: 15%;
     margin-right: 15%;
-    margin-bottom: 3vh;
+    margin-bottom: 5vh;
+}
+.cred-useful-links {
+  margin-bottom: 0%;
+  padding-bottom: 0%;
+  text-align: center;
+}
+.cred-useful-links li {
+  padding-bottom: 1vh;
+}
+.cred-useful-links a {
+  color: #243528;
+  text-decoration: none;
+  font-size: 14pt;
+  font-weight: 600;
+}
+
+.cred-useful-links a:hover {
+  color: #1a5e3c;
+  text-decoration: none;
+}
+.cred-useful-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
