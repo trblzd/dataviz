@@ -1,3 +1,7 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 .header {
   width: 100%;
   z-index: 1000;
@@ -21,6 +25,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5vh 2vw;
+  min-height: 8vh;
 }
 
 .header.transparent {
@@ -37,7 +42,6 @@
   transition: all 0.5s ease;
 }
 
-/* MENU PADRÃO (DESKTOP) */
 .nav-links {
   display: flex;
   gap: 2vw;
@@ -52,6 +56,7 @@
   font-weight: 500;
   transition: color 0.3s ease;
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -74,13 +79,13 @@
   width: 100%;
 }
 
-/* DROPDOWN PADRÃO */
 .dropdown-trigger {
   position: relative;
   cursor: pointer;
   color: white;
   font-size: clamp(16pt, 1.5vw, 20px);
   font-weight: 500;
+  white-space: nowrap; 
 }
 
 .dropdown-menu {
@@ -92,6 +97,8 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 999;
   min-width: 200px;
+  max-height: 500px; 
+  overflow-y: auto; 
 }
 
 .dropdown-menu a {
@@ -100,15 +107,16 @@
   color: white;
   text-decoration: none;
   font-size: 12pt;
+  white-space: nowrap; 
 }
 
-/* HAMBURGUER MENU */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 0.4vh;
   z-index: 1001;
+  padding: 10px; 
 }
 
 .bar {
@@ -126,7 +134,7 @@
 
   .nav-links {
     position: absolute;
-    top: 100%;
+    top: var(--header-height, 8vh); 
     left: 0;
     right: 0;
     background-color: #0F221E;
@@ -136,6 +144,8 @@
     transform: translateY(-200%);
     transition: transform 0.3s ease;
     z-index: 1000;
+    height: calc(100vh - var(--header-height, 8vh)); 
+    overflow-y: auto;
   }
 
   .nav-links.open {
@@ -148,6 +158,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1vh;
+    padding: 1vh 0;
   }
 
   .dropdown-menu {
@@ -157,26 +168,42 @@
     background-color: transparent;
     text-align: center;
     margin-top: 1vh;
+    width: 100%;
+    max-height: none; 
+    overflow-y: visible; 
   }
 
   .dropdown-menu a {
     padding: 1vh 0.5vw;
     font-size: 14pt;
-    color:#F2B034;
+    color: #F2B034;
   }
 
   .nav-links a {
     font-size: 14pt;
+    width: 100%; 
+    text-align: center;
+    padding: 1vh 0;
   }
-.nav-links a:hover,
+
+  .nav-links a:hover,
   .dropdown-trigger:hover {
-    color: inherit;
+    color: inherit; 
   }
   .nav-links a::after {
-    display: none;
+    display: none; 
   }
   .header.mobile-menu-open {
     background-color: #0F221E;
   }
 }
 
+:root {
+  --header-height: 8vh; 
+}
+
+@media (max-width: 600px) {
+  :root {
+    --header-height: 10vh;
+  }
+}

@@ -4,14 +4,12 @@ import './Ferramenta.css';
 function Ferramenta() {
   return (
     <div className="ferramenta">
-      <h1 className="ferramenta-title">Interactive Tool (SimpleNetInt)</h1>
       <iframe
-        src="/simpleNetIntFiles/index.html"
+        src="/SimpleNetInt/index.html"
         width="100%"
-        height="900px"
+        height="100%"
         style={{ border: "none" }}
-        title="SimpleNetInt 3D Tool"
-        allowFullScreen
+        title="Interactive Tool"
       ></iframe>
     </div>
   );

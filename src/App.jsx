@@ -5,9 +5,12 @@ import Dimensions from './components/Mapas/Mapas';
 import Header from './components/Header/Header';
 import Contact from './components/Ajuda/Ajuda';
 import Tool from './components/Ferramenta/Ferramenta';
-import Home from './components/Homee/Home';
+import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Credits from './components/Creditos/Creditos';
+
+import uparrow from "/up-arrow.png"
+
 
 function App() {
   const [showBtn, setShowBtn] = useState("myBtn none");
@@ -38,7 +41,7 @@ function App() {
     <HashRouter>
       <div>
         <Header />
-        <button onClick={topFunction} id="myBtn" className={showBtn} title="Go to top">🔝</button>
+        <button onClick={topFunction} id="myBtn" className={showBtn} title="Go to top"><img src={uparrow} alt="Go to top" /></button>
         <Suspense fallback={<h1>Loading...</h1>}>
           <Routes>
             <Route path="/" element={<Home />} />

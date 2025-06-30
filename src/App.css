@@ -17,25 +17,28 @@ p{
 
 
 .myBtn {
-  display: block;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  font-size: 18pt;
-  border: none;
-  outline: none;
-  background-color:  #F2B034;
-  color: white;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 4px;
+    display: block;
+    position: fixed;
+    bottom: 2vh;
+    right: 2vw;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: transparent; 
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
 }
-
+.myBtn img {
+    width: 60px; 
+    height: 60px;
+    padding: 10px;
+    display: block; 
+}
 .none {
   display: none;
 }
-
 .myBtn:hover {
-  background-color:#8d661c;
+    transform: scale(1.1);
+    filter: invert(32%) sepia(19%) saturate(1837%) hue-rotate(110deg) brightness(35%) contrast(95%);
 }

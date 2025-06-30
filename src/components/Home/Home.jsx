@@ -118,8 +118,8 @@ function Home() {
     const treeOptions = {
         width: window.innerWidth,
         height: 800,
-        margin: { top: 40, right: 120, bottom: 40, left: 120 },
-        linkLength: 200,
+        margin: { top: 25, right: 100, bottom: 25, left: 100 },
+        linkLength: 200,    
         fontSize: 14,
         fill: "#F2B034",
         nodeColors: {
@@ -228,6 +228,7 @@ function Home() {
 
             </div>
 
+            <div>
             <div className="DimensoesHome">
                 <h6>DIMENSIONS OF THE STUDY</h6>
                 <h1>Revealing the impact of Amazonian agrarian systems on environmental and epidemiological changes</h1>
@@ -241,7 +242,7 @@ function Home() {
                 <p> The visualization strategy is a <strong>chromatic comparison between two time windows (2001-2006 and 2007-2017)</strong> where users can visually correlate indicators across dimensions.
                     To develop the multi-layered visualization, we collaborated with the National Center for Supercomputing Applications at the University of Illinois to enable state-of-the-art
                     interactions on conventional computer browsers to make the visualizations available to the general public.</p>
-
+                </div>
                 <div className="carousel-container">
                     {itemsPerPage < dimensions.length && (
                         <button className="carousel-button prev" onClick={handlePrev}>
@@ -269,57 +270,64 @@ function Home() {
                         </button>
                     )}
                 </div>
+                <br/><br/><br/>
             </div>
 
-              <div className="AmazoniaLegal">
-                  <div className="AmazoniaLegalDv">
-                      <h1>Brazilian Legal Amazon</h1>
-                      <p id="sb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus ultricies nisi et molestie.
-                          Nunc at bibendum diam. Duis cursus posuere tortor, at tristique justo tincidunt et. </p>
+            <div className="AmazoniaLegal">
+    <div className="AmazoniaLegalDv">
+        <h1>Brazilian Legal Amazon</h1>
+        <p id="sb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus ultricies nisi et molestie.
+            Nunc at bibendum diam. Duis cursus posuere tortor, at tristique justo tincidunt et. </p>
 
-                      <div className="AmazoniaContent">
-                          <img src={Amazonia} alt="Amazonia" className="AmazoniaImg" />
+        <div className="AmazoniaContent">
+            <img src={Amazonia} alt="Amazonia" className="AmazoniaImg" />
 
-                          <div className="InfoAmazonia">
-                              <div className="NumDivs">
-                                  <p>The Brazilian Legal Amazon is a <strong>political-administrative area</strong></p>
-                              </div>
-                              <div className="NumDivs">
-                                  <img src={MapIcon} id="imgdv" alt="Map" />
-                                  <p>Area of <strong>5 million km²</strong></p>
-                              </div>
-                              <div className="NumDivs">
-                                  <img src={pizza} id="imgdv" alt="Pizza" />
-                                  <p>It occupies <strong>58.9%</strong> of Brazil's territory</p>
-                              </div>
-                              <div className="NumDivs">
-                                  <p id="num">772</p>
-                                  <p>Municipalities</p>
-                              </div>
-                              <div className="NumDivs">
-                                  <p id="num">9</p>
-                                  <p>Brazilian States</p>
-                              </div>
-                              <div className="NumDivs">
-                                  <img src={trescirculos} id="imgdv" alt="Circles" />
-                                  <p><strong>3 Brazilian</strong> biomes</p>
-                              </div>
-                              <div className="NumDivs">
-                                  <img src={CAmarelo} id="imgdv" alt="Yellow" />
-                                  <p>20% of the <strong>Cerrado biome</strong></p>
-                              </div>
-                              <div className="NumDivs">
-                                  <img src={CRosa} id="imgdv" alt="Pink" />
-                                  <p>40% of the <strong>Pantanal biome</strong></p>
-                              </div>
-                              <div className="NumDivs">
-                                  <img src={CVerde} id="imgdv" alt="Green" />
-                                  <p>Biome of the <strong>Brazilian Amazon</strong></p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+            <div className="InfoAmazonia">
+                <div className="NumDivsRow">
+                    <div className="NumDivs">
+                        <p>The Brazilian Legal Amazon is a <strong>political-administrative area</strong></p>
+                    </div>
+                    <div className="NumDivs">
+                        <img src={MapIcon} id="imgdv" alt="Map" />
+                        <p>Area of <strong>5 million km²</strong></p>
+                    </div>
+                    <div className="NumDivs">
+                        <img src={pizza} id="imgdv" alt="Pizza" />
+                        <p>It occupies <strong>58.9%</strong> of Brazil's territory</p>
+                    </div>
+                </div>
+                <div className="NumDivsRow">
+                    <div className="NumDivs">
+                        <p id="num">772</p>
+                        <p>Municipalities</p>
+                    </div>
+                    <div className="NumDivs">
+                        <p id="num">9</p>
+                        <p>Brazilian States</p>
+                    </div>
+                    <div className="NumDivs">
+                        <img src={trescirculos} id="imgdv" alt="Circles" />
+                        <p><strong>3 Brazilian</strong> biomes</p>
+                    </div>
+                </div>
+                <div className="NumDivsRow">
+                    <div className="NumDivs">
+                        <img src={CAmarelo} id="imgdv" alt="Yellow" />
+                        <p>20% of the <strong>Cerrado biome</strong></p>
+                    </div>
+                    <div className="NumDivs">
+                        <img src={CRosa} id="imgdv" alt="Pink" />
+                        <p>40% of the <strong>Pantanal biome</strong></p>
+                    </div>
+                    <div className="NumDivs">
+                        <img src={CVerde} id="imgdv" alt="Green" />
+                        <p>Biome of the <strong>Brazilian Amazon</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
 
             <div className="DTool">
                 <img src={tool} alt="tool" id="tool" />
