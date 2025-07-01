@@ -28,7 +28,7 @@ h6 {
         "titulo ilustracao"
         "texto ilustracao"
         "botao ilustracao";
-    align-items: start;
+    align-items: center;
     gap: 1rem;
     margin: auto;
     position: relative;
@@ -36,7 +36,7 @@ h6 {
     min-height: 100vh;
     padding: 20vh 10vw;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow: hidden;
     max-width: 100%;
     background-size: cover;
     background-position: center;
@@ -49,12 +49,12 @@ h6 {
     z-index: 5;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
     gap: 1rem;
-    grid-column: 1 / 2;
-    grid-row: 1 / span 3;
+    grid-area: titulo / texto / botao;
     padding-right: 2rem;
+    flex-shrink: 0;
 }
 
 .containerHome h1 {
@@ -63,7 +63,7 @@ h6 {
     color: #F2B034;
     text-align: left;
     margin: 0;
-    padding-bottom: 5vh;
+    padding-bottom: 2vh;
 }
 
 .containerHome p {
@@ -77,11 +77,10 @@ h6 {
     grid-area: ilustracao;
     align-self: center;
     justify-self: end;
-    scale: 1.2;
-    grid-row: 1 / span 3;
-    z-index: 3;
+    scale: 1;
     max-width: 100%;
     height: auto;
+    z-index: 3;
 }
 
 .Scroll {
@@ -105,18 +104,7 @@ h6 {
     height: auto;
 }
 
-#Gradiente {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 2;
-    mix-blend-mode: multiply;
-    pointer-events: none;
-}
-
+#Gradiente,
 #FotoProjeto {
     position: absolute;
     top: 0;
@@ -124,13 +112,21 @@ h6 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1;
-    opacity: 0.5;
-    mix-blend-mode: color-dodge;
     pointer-events: none;
 }
 
-.containerHome>* :not(#FotoProjeto):not(#Gradiente) {
+#Gradiente {
+    z-index: 2;
+    mix-blend-mode: multiply;
+}
+
+#FotoProjeto {
+    z-index: 1;
+    opacity: 0.5;
+    mix-blend-mode: color-dodge;
+}
+
+.containerHome > *:not(#FotoProjeto):not(#Gradiente) {
     position: relative;
     z-index: 4;
 }
@@ -785,7 +781,6 @@ h6 {
     }
 }
 
-
 @media (min-width: 1500px) {
     .carousel-button {
         display: none;
@@ -926,7 +921,7 @@ h6 {
     }
 
     .content-wrapper {
-        grid-column: 1 / -1;
+        grid-area: content;
         padding-top: 2vh;
         padding-right: 0;
         align-items: center;
@@ -971,16 +966,6 @@ h6 {
 
     .Scroll .scroll-icon {
         width: clamp(16px, 4vw, 24px);
-    }
-
-    #Gradiente,
-    #FotoProjeto {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
     }
 
     .DimensoesHome {
@@ -1162,7 +1147,6 @@ h6 {
     }
 
     .InfoAmazonia {
-        grid-template-columns: 1fr;
         gap: 1rem;
         min-width: unset;
     }

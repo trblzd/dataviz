@@ -1,161 +1,161 @@
 .help-page {
-  text-align: center;
-  margin-left: 15%;
-  margin-right: 15%;
-  color: #122c2a;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    color: #122c2a;
 }
 
 .help-title {
-  font-size: 28pt;
-  margin-top: 4vh;
-  margin-bottom: 2vh;
-  color: #304536;
+    font-size: 28pt;
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+    color: #304536;
 }
 
 .help-intro {
-  font-size: 14pt;
-  margin-bottom: 4vh;
+    font-size: 14pt;
+    margin-bottom: 4vh;
 }
 
 .help-section {
-  margin-bottom: 5vh;
+    margin-bottom: 5vh;
 }
 
 .help-section h2 {
-  font-size: 20pt;
-  margin-bottom: 1.5vh;
-  color: #F2B034;
+    font-size: 20pt;
+    margin-bottom: 1.5vh;
+    color: #F2B034;
 }
 
 .ContactUs {
-  padding: 2vw;
-  text-align: center;
+    padding: 2vw;
+    text-align: center;
 }
 
 .ContactUs h1 {
-  font-size: 28pt;
+    font-size: 28pt;
 }
 
 #Pessoas {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .PessoasFotoHelp {
-  width: 200px;
-  background: linear-gradient(to bottom, #ffffff 55%, #f5f8f5 45%);
-  border-radius: 1rem;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    width: 200px;
+    background: linear-gradient(to bottom, #ffffff 55%, #f5f8f5 45%);
+    border-radius: 1rem;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .PessoasFotoHelp:hover {
-  transform: scale(1.02);
+    transform: scale(1.02);
 }
 
 .PessoasFotoHelp img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .PessoasFotoHelp h1 {
-  font-family: 'Inter', sans-serif;
-  font-size: 14pt;
-  font-weight: 700;
-  margin: 0.8rem 0.8rem 0 0.8rem;
-  color: #243528;
-  text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 14pt;
+    font-weight: 700;
+    margin: 0.8rem 0.8rem 0 0.8rem;
+    color: #243528;
+    text-align: left;
 }
 
 .PessoasFotoHelp p {
-  font-size: 12pt;
-  margin: 0.2rem 0.8rem 1rem 0.8rem;
-  color: #3f4f45;
-  text-align: left;
+    font-size: 12pt;
+    margin: 0.2rem 0.8rem 1rem 0.8rem;
+    color: #3f4f45;
+    text-align: left;
 }
 
 .PessoasFotoHelp a {
-  text-decoration: none;
-  color: #236e4a;
-  font-weight: 500;
-  font-size: 0.8rem;
-  margin: 0 0.8rem 0.8rem 0.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.3rem;
-  transition: color 0.3s ease;
+    text-decoration: none;
+    color: #236e4a;
+    font-weight: 500;
+    font-size: 0.8rem;
+    margin: 0 0.8rem 0.8rem 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.3rem;
+    transition: color 0.3s ease;
 }
 
 .PessoasFotoHelp a:hover {
-  color: #1a5e3c;
+    color: #1a5e3c;
 }
 
 details {
-  margin-bottom: 1.5vh;
-  background: #f9f9f9;
-  padding: 1vh 1vw;
-  border-radius: 8px;
-  cursor: pointer;
+    margin-bottom: 1.5vh;
+    background: #f9f9f9;
+    padding: 1vh 1vw;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 details summary {
-  font-weight: 600;
-  font-size: 14pt;
-  cursor: pointer;
+    font-weight: 600;
+    font-size: 14pt;
+    cursor: pointer;
 }
 
 details p {
-  margin-top: 1vh;
-  font-size: 13pt;
+    margin-top: 1vh;
+    font-size: 13pt;
 }
 
 ol {
-  padding-left: 1.5em;
-  font-size: 13.5pt;
+    padding-left: 1.5em;
+    font-size: 13.5pt;
 }
 
 .help-button {
-  display: inline-block;
-  margin-top: 1.5vh;
-  padding: 0.8vh 1.5vw;
-  background-color: #F2B034;
-  color: #122c2a;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
+    display: inline-block;
+    margin-top: 1.5vh;
+    padding: 0.8vh 1.5vw;
+    background-color: #F2B034;
+    color: #122c2a;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
 }
 
 .help-button:hover {
-  background-color: #d49a2a;
+    background-color: #d49a2a;
 }
 
-.help-useful-links a {
-  color: #243528;
-  text-decoration: none;
-  font-size: 14pt;
-  font-weight: 600;
-}
-
-.help-useful-links a:hover {
-  color: #1a5e3c;
-  text-decoration: none;
-}
-.help-useful-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.help-useful-links ul { 
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .help-useful-links li {
-  padding-bottom: 1vh;
+    padding-bottom: 1vh;
+}
+
+.help-useful-links a {
+    color: #243528;
+    text-decoration: none;
+    font-size: 14pt;
+    font-weight: 600;
+}
+
+.help-useful-links a:hover {
+    color: #1a5e3c;
 }

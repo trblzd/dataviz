@@ -249,8 +249,8 @@ function Home() {
                                 <p className="elipseDesc">{dim.desc}</p>
                                 <Link to={dim.link}>
                                     <button className="elipseButton">
-                                        <img src={arrow} alt="Arrow" className="arrow-icon" />
                                         <span>See the indicators</span>
+                                        <img src={arrow} alt="Arrow" className="arrow-icon" />
                                     </button>
                                 </Link>
                             </div>

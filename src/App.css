@@ -1,20 +1,19 @@
 body {
-  background-color: #ffffff;
-  margin: 0;
-  padding: 0;
-  color: black;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    color: black;
 }
 
 h1 {
-  font-size: 44pt;
-  letter-spacing: 1pt;
-  font-weight: 300;
+    font-size: 44pt;
+    letter-spacing: 1pt;
+    font-weight: 300;
 }
 
-p{
-  font-size: 14pt;
+p {
+    font-size: 14pt;
 }
-
 
 .myBtn {
     display: block;
@@ -24,20 +23,23 @@ p{
     z-index: 99;
     border: none;
     outline: none;
-    background-color: transparent; 
+    background-color: transparent;
     cursor: pointer;
     padding: 0;
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease; 
 }
+
 .myBtn img {
-    width: 60px; 
+    width: 60px;
     height: 60px;
     padding: 10px;
-    display: block; 
+    display: block;
 }
+
 .none {
-  display: none;
+    display: none;
 }
+
 .myBtn:hover {
     transform: scale(1.1);
     filter: invert(32%) sepia(19%) saturate(1837%) hue-rotate(110deg) brightness(35%) contrast(95%);
