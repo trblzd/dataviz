@@ -32,6 +32,10 @@ import scroll from "/scroll.svg";
 import ilustrahome from "/ilustraHome.svg";
 
 function Home() {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [itemsPerPage, setItemsPerPage] = useState(4);
+    const carouselRef = useRef(null);
+
     const treeData = {
         name: "Main Indicators",
         children: [
@@ -159,18 +163,12 @@ function Home() {
             "Urban population": "#FF9820"
         }
     };
-
     const dimensions = [
         { title: "Environmental", icon: IconEnv, desc: "Biodiversity loss, land use changes, and climate anomalies in the Amazon are deeply interconnected.", link: "/Dimensions?dim=environmental" },
-        { title: "Epidemiological", icon: IconEpi, desc: "Biodiversity loss, land use changes, and climate anomalies in the Amazon are deeply interconnected.", link: "/Dimensions?dim=epidemiological" },
-        { title: "Socioeconomic", icon: IconSoc, desc: "Biodiversity loss, land use changes, and climate anomalies in the Amazon are deeply interconnected.", link: "/Dimensions?dim=socioeconomic" },
-        { title: "Economic", icon: IconEco, desc: "Biodiversity loss, land use changes, and climate anomalies in the Amazon are deeply interconnected.", link: "/Dimensions?dim=economic" },
+        { title: "Epidemiological", icon: IconEpi, desc: "The spread and occurrence of diseases such as Dengue are influenced by various factors in the Amazon.", link: "/Dimensions?dim=epidemiological" },
+        { title: "Socioeconomic", icon: IconSoc, desc: "The population plays a critical role in understanding the human impact and vulnerability in the region.", link: "/Dimensions?dim=socioeconomic" },
+        { title: "Economic", icon: IconEco, desc: "Understanding the poverty indicators is crucial for assessing well-being and challenges in the Amazon.", link: "/Dimensions?dim=economic" },
     ];
-
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [itemsPerPage, setItemsPerPage] = useState(4);
-    const carouselRef = useRef(null);
-
     const updateItemsPerPage = () => {
         if (carouselRef.current) {
             const width = carouselRef.current.offsetWidth;
@@ -185,21 +183,17 @@ function Home() {
             }
         }
     };
-
     useEffect(() => {
         updateItemsPerPage();
         window.addEventListener('resize', updateItemsPerPage);
         return () => window.removeEventListener('resize', updateItemsPerPage);
     }, []);
-
     const handleNext = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % dimensions.length);
     };
-
     const handlePrev = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + dimensions.length) % dimensions.length);
     };
-
     const getVisibleDimensions = () => {
         if (itemsPerPage >= dimensions.length) {
             return dimensions;
@@ -210,22 +204,20 @@ function Home() {
         }
         return visible;
     };
-
-
     return (
         <div>
             <div className="containerHome">
-                <h1>See the Brazilian Amazon from different lenses</h1>
-                <p>Data visualizations play a key role in understanding the Brazilian Amazon,
-                    tracking deforestation, biodiversity, and climate change. Discover insights about it!</p>
-                <div className="Scroll">
-                    <span>Scroll to discover more</span>
-                    <img src={scroll} alt="Scroll" className="scroll-icon" />
+                <div className="content-wrapper"> <h1>See the Brazilian Amazon from different lenses</h1>
+                    <p>Data visualizations play a key role in understanding the Brazilian Amazon,
+                        tracking deforestation, biodiversity, and climate change. Discover insights about it!</p>
+                    <div className="Scroll">
+                        <span>Scroll to discover more</span>
+                        <img src={scroll} alt="Scroll" className="scroll-icon" />
+                    </div>
                 </div>
-                <img src={ilustrahome} alt="ilustrahome" className="ilustrahome" id="ilustrahome" />
+                <img src={ilustrahome} alt="ilustrahome" id="ilustrahome" />
                 <img src={rec} alt="Gradiente" id="Gradiente" />
                 <img src={FotoProjeto} alt="Projeto Trajetorias" id="FotoProjeto" />
-
             </div>
 
             <div>
@@ -274,59 +266,59 @@ function Home() {
             </div>
 
             <div className="AmazoniaLegal">
-    <div className="AmazoniaLegalDv">
-        <h1>Brazilian Legal Amazon</h1>
-        <p id="sb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus ultricies nisi et molestie.
-            Nunc at bibendum diam. Duis cursus posuere tortor, at tristique justo tincidunt et. </p>
+            <div className="AmazoniaLegalDv">
+                <h1>Brazilian Legal Amazon</h1>
+                <p id="sb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus ultricies nisi et molestie.
+                    Nunc at bibendum diam. Duis cursus posuere tortor, at tristique justo tincidunt et. </p>
 
-        <div className="AmazoniaContent">
-            <img src={Amazonia} alt="Amazonia" className="AmazoniaImg" />
+                <div className="AmazoniaContent">
+                    <img src={Amazonia} alt="Amazonia" className="AmazoniaImg" />
 
-            <div className="InfoAmazonia">
-                <div className="NumDivsRow">
-                    <div className="NumDivs">
-                        <p>The Brazilian Legal Amazon is a <strong>political-administrative area</strong></p>
-                    </div>
-                    <div className="NumDivs">
-                        <img src={MapIcon} id="imgdv" alt="Map" />
-                        <p>Area of <strong>5 million km²</strong></p>
-                    </div>
-                    <div className="NumDivs">
-                        <img src={pizza} id="imgdv" alt="Pizza" />
-                        <p>It occupies <strong>58.9%</strong> of Brazil's territory</p>
-                    </div>
-                </div>
-                <div className="NumDivsRow">
-                    <div className="NumDivs">
-                        <p id="num">772</p>
-                        <p>Municipalities</p>
-                    </div>
-                    <div className="NumDivs">
-                        <p id="num">9</p>
-                        <p>Brazilian States</p>
-                    </div>
-                    <div className="NumDivs">
-                        <img src={trescirculos} id="imgdv" alt="Circles" />
-                        <p><strong>3 Brazilian</strong> biomes</p>
-                    </div>
-                </div>
-                <div className="NumDivsRow">
-                    <div className="NumDivs">
-                        <img src={CAmarelo} id="imgdv" alt="Yellow" />
-                        <p>20% of the <strong>Cerrado biome</strong></p>
-                    </div>
-                    <div className="NumDivs">
-                        <img src={CRosa} id="imgdv" alt="Pink" />
-                        <p>40% of the <strong>Pantanal biome</strong></p>
-                    </div>
-                    <div className="NumDivs">
-                        <img src={CVerde} id="imgdv" alt="Green" />
-                        <p>Biome of the <strong>Brazilian Amazon</strong></p>
+                    <div className="InfoAmazonia">
+                        <div className="NumDivsRow">
+                            <div className="NumDivs">
+                                <p>The Brazilian Legal Amazon is a <strong>political-administrative area</strong></p>
+                            </div>
+                            <div className="NumDivs">
+                                <img src={MapIcon} id="imgdv" alt="Map" />
+                                <p>Area of <strong>5 million km²</strong></p>
+                            </div>
+                            <div className="NumDivs">
+                                <img src={pizza} id="imgdv" alt="Pizza" />
+                                <p>It occupies <strong>58.9%</strong> of Brazil's territory</p>
+                            </div>
+                        </div>
+                        <div className="NumDivsRow">
+                            <div className="NumDivs">
+                                <p id="num">772</p>
+                                <p>Municipalities</p>
+                            </div>
+                            <div className="NumDivs">
+                                <p id="num">9</p>
+                                <p>Brazilian States</p>
+                            </div>
+                            <div className="NumDivs">
+                                <img src={trescirculos} id="imgdv" alt="Circles" />
+                                <p><strong>3 Brazilian</strong> biomes</p>
+                            </div>
+                        </div>
+                        <div className="NumDivsRow">
+                            <div className="NumDivs">
+                                <img src={CAmarelo} id="imgdv" alt="Yellow" />
+                                <p>20% of the <strong>Cerrado biome</strong></p>
+                            </div>
+                            <div className="NumDivs">
+                                <img src={CRosa} id="imgdv" alt="Pink" />
+                                <p>40% of the <strong>Pantanal biome</strong></p>
+                            </div>
+                            <div className="NumDivs">
+                                <img src={CVerde} id="imgdv" alt="Green" />
+                                <p>Biome of the <strong>Brazilian Amazon</strong></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
             </div>
 
             <div className="DTool">
@@ -405,8 +397,8 @@ function Home() {
                 </div>
             </div>
 
-
         </div>
     )
 }
 export default Home;
+

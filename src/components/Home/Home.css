@@ -1,8 +1,3 @@
-.AmazoniaLegal,
-.DimensionsX {
-    margin-bottom: 6vh;
-}
-
 html,
 body {
     max-width: 100%;
@@ -39,7 +34,7 @@ h6 {
     position: relative;
     background-color: #0f221e;
     min-height: 100vh;
-    padding: 8vh 10vw;
+    padding: 20vh 10vw;
     box-sizing: border-box;
     overflow-x: hidden;
     max-width: 100%;
@@ -48,23 +43,32 @@ h6 {
     background-repeat: no-repeat;
 }
 
+.content-wrapper {
+    background-color: transparent;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    grid-column: 1 / 2;
+    grid-row: 1 / span 3;
+    padding-right: 2rem;
+}
+
 .containerHome h1 {
-    grid-area: titulo;
     font-size: 48pt;
     font-weight: 400;
     color: #F2B034;
-    position: relative;
-    margin: 0;
-    align-self: end;
     text-align: left;
+    margin: 0;
     padding-bottom: 5vh;
 }
 
 .containerHome p {
-    grid-area: texto;
     color: #ffffff;
     font-weight: 300;
-    position: relative;
     text-align: left;
     margin: 0;
 }
@@ -73,9 +77,8 @@ h6 {
     grid-area: ilustracao;
     align-self: center;
     justify-self: end;
-    padding-top: 7%;
     scale: 1.2;
-    grid-row: 1 / span 2;
+    grid-row: 1 / span 3;
     z-index: 3;
     max-width: 100%;
     height: auto;
@@ -94,6 +97,7 @@ h6 {
     border: none;
     text-decoration: none;
     width: fit-content;
+    margin-top: 2vh;
 }
 
 .Scroll .scroll-icon {
@@ -454,16 +458,19 @@ h6 {
 }
 
 .DTool {
-    position: fixed;
     width: 100%;
     height: auto;
+    margin: 0 auto;
+    padding: 0 auto;
+    position: relative;
 }
 
 #tool {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: fill;
+    object-fit: contain;
+    z-index: 1;
 }
 
 .toolButton {
@@ -862,6 +869,10 @@ h6 {
         transform: translateY(0);
     }
 
+    .ArtigoImagem {
+        display: none;
+    }
+
     .dropdown-trigger {
         width: 100%;
         display: flex;
@@ -907,12 +918,19 @@ h6 {
         grid-template-columns: 1fr;
         grid-template-areas:
             "ilustracao"
-            "titulo"
-            "texto"
-            "botao";
-        padding: 5vh 5vw;
+            "content";
+        padding: 8vh 5vw;
         min-height: 80vh;
         height: auto;
+        gap: 2vh;
+    }
+
+    .content-wrapper {
+        grid-column: 1 / -1;
+        padding-top: 2vh;
+        padding-right: 0;
+        align-items: center;
+        text-align: center;
         gap: 2vh;
     }
 
@@ -948,6 +966,7 @@ h6 {
         padding: 1.5vh 4vw;
         font-size: clamp(12pt, 2vw, 16pt);
         gap: 1vw;
+        justify-self: center;
     }
 
     .Scroll .scroll-icon {
@@ -1078,7 +1097,7 @@ h6 {
 
 @media (max-width: 600px) {
     .containerHome {
-        padding: 4vh 4vw;
+        padding: 9vh 4vw;
         min-height: 70vh;
     }
 
@@ -1155,9 +1174,26 @@ h6 {
 
     .NumDivs {
         width: 100%;
-        height: auto;
+        max-width: 280px;
+        height: clamp(120px, 30vw, 150px);
         padding: 0.8rem;
         min-height: unset;
+        font-size: clamp(0.8rem, 3vw, 1.1rem);
+    }
+
+    .NumDivs p {
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
+    }
+
+    #num {
+        font-size: clamp(24pt, 8vw, 40pt);
+    }
+
+    .NumDivs svg,
+    .NumDivs img {
+        width: clamp(20px, 6vw, 35px);
+        height: auto;
+        margin-bottom: 0.4rem;
     }
 
     .DTool .toolButton {
@@ -1218,5 +1254,18 @@ h6 {
     .AmazoniaImgBottom {
         width: 95%;
         margin-top: 3vh;
+    }
+
+    #Pessoas {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .PessoasFoto {
+        width: 90%;
+        max-width: 300px;
+        min-width: unset;
+        height: auto;
     }
 }

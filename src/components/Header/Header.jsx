@@ -31,11 +31,10 @@ function Header() {
   }, [location.pathname]);
 
   let headerClass = "";
-  const isHomePageOrDimensions = location.pathname === "/" || location.pathname.startsWith("/Dimensions");
 
   if (isMobileMenuOpen && window.innerWidth <= MOBILE_BREAKPOINT) {
     headerClass = "solid mobile-menu-open fixed";
-  } else if (isHomePageOrDimensions) {
+  } else if (location.pathname === "/" || location.pathname.startsWith("/Dimensions")) { 
     headerClass = isScrolled ? "solid fixed" : "transparent fixed";
   } else {
     headerClass = "solid static";
@@ -57,7 +56,7 @@ function Header() {
         </div>
 
         <nav className={`nav-links ${isMobileMenuOpen ? "open" : ""}`}>
-          {!isHomePageOrDimensions && (
+          {location.pathname !== "/" && ( 
             <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
           )}
 

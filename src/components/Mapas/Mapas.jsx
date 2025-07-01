@@ -62,46 +62,46 @@ const DimensionsPage = () => {
     }, [dimParam]);
 
   const dimensionsData = [
-    {
-      id: 'environmental',
-      title: 'Environmental Dimension',
-      description: 'The Environmental dimension is divided four subdimensions: Habitat loss, Land use and cover, Climate anomalies, and Transport network density.',
-      icon: IconEnv,
-      subcategories: [
-        { id: 'habitatLoss', name: 'Habitat Loss', indicators: ['Deforestation', 'Forest degradation', 'Fires', 'Mining', 'Vegetation fragmentation'] },
-        { id: 'landUseCover', name: 'Land Use and Land Cover', indicators: ['Remnant forest', 'Secondary vegetation', 'Pasture', 'Crop', 'Urban area'] }, 
-        { id: 'transportationNetworks', name: 'Transportation networks', indicators: ['Roads network', 'Waterways network', 'Ports'] }, 
-        { id: 'climaticAnomalies', name: 'Climatic anomalies', indicators: ['Precipitation', 'Minimum temperature'] }, 
-      ],
-    },
-    {
-      id: 'epidemiological',
-      title: 'Epidemiological Dimension',
-      description: 'The Epidemiological dimension is divided four subdimensions: Habitat loss, Land use and cover, Climate anomalies, and Transport network density.',
-      icon: IconEpi,
-      subcategories: [
-        {id: 'occuranceofDiseases', name: 'Occurrence of Diseases', indicators: ['Malaria', 'Chagas', 'Visceral leishmaniasis', 'Cutaneous leishmaniasis', 'Dengue']},
-      ],
-    },
-    {
-      id: 'socioeconomic',
-      title: 'Socioeconomic Dimension',
-      description: 'The Socioeconomic dimension is divided four subdimensions: Habitat loss, Land use and cover, Climate anomalies, and Transport network density.',
-      icon: IconSoc,
-      subcategories: [
-        {id: 'populationDensity', name: 'Population Density', indicators: ['Rural population', 'Urban population'] },
-      ],
-    },
-    {
-      id: 'economic',
-      title: 'Economic Dimension',
-      description: 'The Economic dimension is divided four subdimensions: Habitat loss, Land use and cover, Climate anomalies, and Transport network density.',
-      icon: IconEco,
-      subcategories: [
-        { id: 'povertyIndices', name: 'Poverty Indices', indicators: ['Deprivations indicators'] }
-      ],
-    },
-  ];
+  {
+    id: 'environmental',
+    title: 'Environmental Dimension',
+    description: 'The Environmental dimension is divided four subdimensions: Habitat loss, Land use and cover, Climate anomalies, and Transport network density.',
+    icon: IconEnv,
+    subcategories: [
+      { id: 'habitatLoss', name: 'Habitat Loss', indicators: ['Deforestation', 'Forest degradation', 'Fires', 'Mining', 'Vegetation fragmentation'] },
+      { id: 'landUseCover', name: 'Land Use and Land Cover', indicators: ['Remnant forest', 'Secondary vegetation', 'Pasture', 'Crop', 'Urban area'] },
+      { id: 'transportationNetworks', name: 'Transportation networks', indicators: ['Roads network', 'Waterways network', 'Ports'] },
+      { id: 'climaticAnomalies', name: 'Climatic anomalies', indicators: ['Precipitation', 'Minimum temperature'] },
+    ],
+  },
+  {
+    id: 'epidemiological',
+    title: 'Epidemiological Dimension',
+    description: 'The Epidemiological dimension is focused on the Occurrence of Diseases, covering indicators such as Malaria, Chagas, Visceral Leishmaniasis, Cutaneous Leishmaniasis, and Dengue.',
+    icon: IconEpi,
+    subcategories: [
+      { id: 'occurrenceofDiseases', name: 'Occurrence of Diseases', indicators: ['Malaria', 'Chagas', 'Visceral leishmaniasis', 'Cutaneous leishmaniasis', 'Dengue'] },
+    ],
+  },
+  {
+    id: 'socioeconomic',
+    title: 'Socioeconomic Dimension',
+    description: 'The Socioeconomic dimension explores Population Density, with key indicators being Rural Population and Urban Population.',
+    icon: IconSoc,
+    subcategories: [
+      { id: 'populationDensity', name: 'Population Density', indicators: ['Rural population', 'Urban population'] },
+    ],
+  },
+  {
+    id: 'economic',
+    title: 'Economic Dimension',
+    description: 'The Economic dimension focuses on Poverty Indices, with a primary indicator of Deprivations Indicators.',
+    icon: IconEco,
+    subcategories: [
+      { id: 'povertyIndices', name: 'Poverty Indices', indicators: ['Deprivations indicators'] }
+    ],
+  },
+];
 
   const [activeDimension, setActiveDimension] = useState(dimensionsData[0]);
 
