@@ -1,7 +1,6 @@
 html,
 body {
     max-width: 100%;
-    overflow-x: hidden;
 }
 
 h1 {
@@ -457,8 +456,12 @@ h6 {
     width: 100%;
     height: auto;
     margin: 0 auto;
-    padding: 0 auto;
+    padding: 0;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 #tool {
@@ -469,16 +472,39 @@ h6 {
     z-index: 1;
 }
 
+.DTool h6 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(0.9em, 1.4vw, 1.8em);
+    z-index: 2;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.DTool h1 {
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(2em, 4vw, 4.5em);
+    z-index: 2;
+    white-space: nowrap;
+    text-align: center;
+    color: #f5f8f5;
+}
+
 .toolButton {
     position: absolute;
-    top: 70%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: inline-flex;
     align-items: center;
     gap: 1vw;
     padding: 2vh 3vw;
-    font-size: 14pt;
+    font-size: clamp(0.9em, 1.2vw, 1.1em);
     font-weight: 400;
     color: #ffffff;
     background-color: #276C5F;
@@ -595,15 +621,15 @@ h6 {
     gap: 2vh;
     margin: 0 auto;
     height: auto;
-    overflow: visible;
 }
 
 .WrapperHome {
+    margin: 0 auto;
+    padding: 0 auto;
     display: flex;
-    justify-content: center;
-    align-items: left;
     width: 100%;
-    min-height: 800px;
+    min-height: 700px;
+    overflow-x: hidden;
 }
 
 .tree-container h6 {
@@ -958,10 +984,12 @@ h6 {
     }
 
     .Scroll {
-        padding: 1.5vh 4vw;
+        padding: 1.5vh 8vw;
         font-size: clamp(12pt, 2vw, 16pt);
         gap: 1vw;
         justify-self: center;
+        width: 80%;
+        max-width: 250px;
     }
 
     .Scroll .scroll-icon {
@@ -1103,6 +1131,8 @@ h6 {
         padding: 2vh 5vw;
         font-size: clamp(10pt, 2.5vw, 14pt);
         gap: 2vw;
+        width: 90%;
+        max-width: 300px;
     }
 
     .Scroll .scroll-icon {
@@ -1251,5 +1281,47 @@ h6 {
         max-width: 300px;
         min-width: unset;
         height: auto;
+        overflow-x: hidden;
+    }
+}
+
+@media (min-width: 901px) {
+    .WrapperHome {
+        justify-content: flex-start;
+        align-items: center;
+        overflow-x: auto;
+    }
+}
+@media (max-width: 900px) {
+    .WrapperHome {
+        justify-content: flex-start;
+        align-items: center;
+        overflow-x: auto;
+    }
+    .node text {
+        font-size: 10px;
+    }
+}
+@media (max-width: 768px) {
+    #tool {
+        height: 90vh;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .DTool h6 {
+        top: 5%;
+        font-size: 1em;
+    }
+
+    .DTool h1 {
+        top: 8%;
+        font-size: 2em;
+    }
+
+    .toolButton {
+        top: 85%;
+        font-size: 0.9em;
+        padding: 1.5vh 4vw;
     }
 }

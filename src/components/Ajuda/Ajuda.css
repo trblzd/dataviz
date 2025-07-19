@@ -17,18 +17,9 @@
     margin-bottom: 4vh;
 }
 
-.help-section {
-    margin-bottom: 5vh;
-}
-
-.help-section h2 {
-    font-size: 20pt;
-    margin-bottom: 1.5vh;
-    color: #F2B034;
-}
-
 .ContactUs {
     padding: 2vw;
+    padding-bottom: 5vh;
     text-align: center;
 }
 
@@ -158,4 +149,8 @@ ol {
 
 .help-useful-links a:hover {
     color: #1a5e3c;
+}
+
+.help-useful-links {
+    padding-bottom: 5vh;
 }

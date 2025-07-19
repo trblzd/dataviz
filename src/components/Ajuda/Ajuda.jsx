@@ -58,29 +58,6 @@ const Help = () => {
                 </ul>
             </div>
       </section>
-
-      <section className="help-section">
-        <h2>FAQ</h2>
-        <details>
-          <summary>How do I use the interactive tool?</summary>
-          <p>Access the <strong>"Interactive Tool"</strong> tab, select a dimension, and explore the available interactive maps and charts.</p>
-        </details>
-        
-        <details>
-          <summary>How do I use the interactive tool?</summary>
-          <p>Access the <strong>"Interactive Tool"</strong> tab, select a dimension, and explore the available interactive maps and charts.</p>
-        </details>
-
-        <details>
-          <summary>What are the project dimensions?</summary>
-          <p>The dimensions represent different aspects of the Amazon: Environmental, Epidemiological, Socioeconomic, and Economic.</p>
-        </details>
-
-        <details>
-          <summary>What are the project dimensions?</summary>
-          <p>The dimensions represent different aspects of the Amazon: Environmental, Epidemiological, Socioeconomic, and Economic.</p>
-        </details>
-      </section>
     </div>
   );
 };

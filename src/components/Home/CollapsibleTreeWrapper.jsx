@@ -11,27 +11,52 @@ const CollapsibleTreeWrapper = ({ data, options }) => {
 
     containerRef.current.innerHTML = '';
 
-    // Largura do container: 90% da tela, como definido no style do retorno
-    const width = window.innerWidth * 0.9; // Use 0.9 para corresponder ao style do div externo
-    const height = options.height;
-    const margin = options.margin; // { top: 25, right: 100, bottom: 25, left: 100 }
+    const isMobile = window.innerWidth <= 900; 
     
-    // innerWidth e innerHeight representam a área *real* onde o conteúdo da árvore será desenhado,
-    // após subtrair as margens.
-    const innerWidth = width - margin.left - margin.right;
+    const height = options.height;
+    const margin = options.margin; 
+
+    let svgWidth;
+    let effectiveLinkLength = options.linkLength;
+    let centerX;
+    
+    const estimatedMaxDepth = 4; 
+    const estimatedMaxTextWidth = 150; 
+
+    if (isMobile) {
+        // MODIFICADO: Garante que o svgWidth seja pelo menos a largura da janela
+        // ou o minSvgWidth (1000px), permitindo que o conteúdo transborde e seja rolado.
+        svgWidth = Math.max(window.innerWidth, options.minSvgWidth || 1000); 
+        
+        // MODIFICADO: Aumenta significativamente o centerX para afastar o início da árvore
+        // da borda esquerda no mobile.
+        centerX = margin.left + 150; // Um valor maior para dar espaço, ajuste se necessário.
+    } else {
+        // Código para Desktop (sem alterações, pois já funciona)
+        svgWidth = window.innerWidth; 
+        
+        const availableSpaceForTree = svgWidth - margin.left - margin.right;
+        
+        centerX = margin.left + 80; 
+        
+        let calculatedLinkLength = (svgWidth - centerX - estimatedMaxTextWidth - 50) / estimatedMaxDepth; 
+        
+        if (calculatedLinkLength > 0 && calculatedLinkLength < options.linkLength) {
+            effectiveLinkLength = Math.max(calculatedLinkLength, 120); 
+        } else {
+            effectiveLinkLength = options.linkLength; 
+        }
+    }
+    
+    const innerWidthForTree = svgWidth - margin.left - margin.right; 
     const innerHeight = height - margin.top - margin.bottom;
+    const centerY = height / 2; 
 
-    // Calcula o ponto central do SVG. A transformação do grupo G fará com que este seja o novo (0,0).
-    const centerX = width / 2; // Centro horizontal da área do SVG
-    const centerY = height / 2; // Centro vertical da área do SVG
-
-    // Criação do SVG
     const svg = d3.select(containerRef.current)
       .append('svg')
-      .attr('width', width)
+      .attr('width', svgWidth) 
       .attr('height', height)
       .append('g')
-      // Corrigido: Mover a origem do grupo 'g' para o centro do SVG
       .attr('transform', `translate(${centerX},${centerY})`);
 
     const root = d3.hierarchy(data);
@@ -39,12 +64,11 @@ const CollapsibleTreeWrapper = ({ data, options }) => {
       node.data.fill = getNodeColor(node.data.name, options.nodeColors, options.fill);
     });
 
-    // Corrigido: A raiz deve começar em (0,0) em relação à nova origem central do SVG
     root.x0 = 0;
     root.y0 = 0;
 
     const treemap = d3.tree()
-      .size([innerHeight, innerWidth]) // O layout da árvore usará innerHeight e innerWidth
+      .size([innerHeight, innerWidthForTree]) 
       .separation((a, b) => (a.parent === b.parent ? 1.2 : 2));
 
     function update(source) {
@@ -52,7 +76,6 @@ const CollapsibleTreeWrapper = ({ data, options }) => {
       const nodes = treeData.descendants();
       const links = treeData.descendants().slice(1);
 
-      // NOVO/CORRIGIDO: Calcular o offset para centralizar a terceira linha verticalmente
       let thirdLevelNodes = nodes.filter(d => d.depth === 2);
       let verticalOffset = 0;
 
@@ -64,12 +87,7 @@ const CollapsibleTreeWrapper = ({ data, options }) => {
       }
 
       nodes.forEach(d => {
-        // d.y é a posição horizontal (profundidade)
-        // O valor padrão de options.linkLength (200) será usado
-        d.y = d.depth * (options.linkLength || innerWidth / 4);
-        
-        // Corrigido: d.x é a posição vertical
-        // Subtraímos o offset para que o centro da 3ª linha vá para 0 (o centro vertical do SVG)
+        d.y = d.depth * effectiveLinkLength;
         d.x = d.x - verticalOffset; 
       });
 
@@ -78,7 +96,6 @@ const CollapsibleTreeWrapper = ({ data, options }) => {
 
       const nodeEnter = node.enter().append('g')
         .attr('class', 'node')
-        // Corrigido: Transição partindo do centro (0,0)
         .attr('transform', () => `translate(${source.y0},${source.x0})`)
         .on('click', (event, d) => {
           if (d.children) {
@@ -86,7 +103,7 @@ const CollapsibleTreeWrapper = ({ data, options }) => {
             d.children = null;
           } else {
             d.children = d._children;
-            d._children = null; // Corrigido: garantir que _children seja nulo ao expandir
+            d._children = null; 
           }
           update(d);
         });
@@ -98,17 +115,9 @@ const CollapsibleTreeWrapper = ({ data, options }) => {
         .style('stroke-width', 2);
 
       const elevatedCategories = [
-        "Environmental",
-        "Biodiversity loss",
-        "Epidemiological",
-        "Transportation networks",
-        "Land Use and Land Cover",
-        "Climatic anomalies",
-        "Occurrence of diseases",
-        "Socioeconomic",
-        "Poverty",
-        "Economic",
-        "Population"
+        "Environmental", "Biodiversity loss", "Epidemiological", "Transportation networks",
+        "Land Use and Land Cover", "Climatic anomalies", "Occurrence of diseases",
+        "Socioeconomic", "Poverty", "Economic", "Population"
       ];
 
       nodeEnter.append('text')
@@ -121,12 +130,10 @@ const CollapsibleTreeWrapper = ({ data, options }) => {
       const nodeUpdate = nodeEnter.merge(node);
       nodeUpdate.transition()
         .duration(600)
-        // Corrigido: Usar d.x e d.y que já foram ajustados
         .attr('transform', d => `translate(${d.y},${d.x})`);
 
       node.exit().transition()
         .duration(600)
-        // Corrigido: Usar source.x e source.y para a animação de saída
         .attr('transform', () => `translate(${source.y},${source.x})`)
         .remove();
 
@@ -136,7 +143,6 @@ const CollapsibleTreeWrapper = ({ data, options }) => {
       const linkEnter = link.enter().insert('path', 'g')
         .attr('class', 'link')
         .attr('d', () => {
-          // Corrigido: Partir do centro (0,0) para a animação de entrada dos links
           const o = { x: source.x0, y: source.y0 };
           return diagonal(o, o);
         });
@@ -149,7 +155,6 @@ const CollapsibleTreeWrapper = ({ data, options }) => {
       link.exit().transition()
         .duration(600)
         .attr('d', () => {
-          // Corrigido: Usar source.x e source.y para a animação de saída dos links
           const o = { x: source.x, y: source.y };
           return diagonal(o, o);
         })
@@ -175,28 +180,26 @@ const CollapsibleTreeWrapper = ({ data, options }) => {
       return colorKey ? colorMap[colorKey] : defaultColor;
     }
 
-    // A árvore deve começar expandida por padrão
     update(root); 
-
-    // A função collapse não é chamada na inicialização, mas é usada no click
-    // (Ela já foi removida da chamada inicial nas últimas revisões)
-    // A função 'collapse' dentro do 'update' function é para a lógica de clique
-    // e está definida como parte do 'onClick' do nó.
-    // Certifique-se de que a lógica de d.children = d._children; e d._children = null;
-    // está correta no onClick, como ajustado acima.
   }, [data, options]);
+
+  const isMobileView = window.innerWidth <= 900;
+  const overflowXStyle = isMobileView ? 'auto' : 'hidden'; 
 
   return (
     <div 
       ref={containerRef}
       style={{
-        width: '90vw', // Mantendo o 90vw que você já usa
+        width: '100%', 
         height: `${options.height}px`,
-        overflow: 'visible',
-        margin: '0 auto', // Centraliza horizontalmente o div do wrapper
-        display: 'flex', // Usar flexbox para centralizar o SVG dentro deste div
-        justifyContent: 'center', // Centraliza horizontalmente o conteúdo flex (o SVG)
-        alignItems: 'center' // Centraliza verticalmente o conteúdo flex (o SVG)
+        overflowX: overflowXStyle, 
+        overflowY: 'hidden',
+        margin: '0 auto', 
+        display: 'flex',
+        alignItems: 'center',
+        // justify-content aqui pode causar o corte se o conteúdo for mais largo que o container
+        // Remova ou defina para 'flex-start' se o problema persistir após as outras alterações
+        // justifyContent: 'center' 
       }}
     />
   );

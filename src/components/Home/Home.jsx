@@ -126,6 +126,7 @@ function Home() {
         linkLength: 200,    
         fontSize: 14,
         fill: "#F2B034",
+        minSvgWidth: 1000,
         nodeColors: {
             "Environmental": "#2e7d32",
             "Biodiversity loss": "#388e3c",
@@ -322,6 +323,8 @@ function Home() {
             </div>
 
             <div className="DTool">
+                <h6>INTERACTIVE</h6>
+                <h1>DataViz Tool</h1>
                 <img src={tool} alt="tool" id="tool" />
                 <Link to="/Tool"><button className="toolButton">
                     <span>Explore the interactive Dataviz</span>
