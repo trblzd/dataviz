@@ -269,8 +269,9 @@ function Home() {
             <div className="AmazoniaLegal">
             <div className="AmazoniaLegalDv">
                 <h1>Brazilian Legal Amazon</h1>
-                <p id="sb">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla finibus ultricies nisi et molestie.
-                    Nunc at bibendum diam. Duis cursus posuere tortor, at tristique justo tincidunt et. </p>
+                <p id="sb">This extensive and complex region, home to 772 municipalities and a rich cultural and ecological diversity, 
+                    is defined by its role in vital hydrological cycles and its crucial contribution to the preservation of both natural 
+                    resources and the livelihoods of indigenous and traditional communities.</p>
 
                 <div className="AmazoniaContent">
                     <img src={Amazonia} alt="Amazonia" className="AmazoniaImg" />
